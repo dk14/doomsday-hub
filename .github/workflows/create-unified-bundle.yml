@@ -48,22 +48,30 @@ jobs:
           repository: dk14/mega-peers
           path: bundle/mega-peers
 
-      - name: Create unified zip archive
+      - name: Create unified zip archive (full)
         run: |
           cd bundle
-          zip -r ../doomsday-unified-bundle.zip . -x "*/.*" "*/node_modules/*" "*/__pycache__/*" "*/dist/*" "*/build/*"
+          zip -r ../doomsday-unified-bundle.zip . -x "*/.*" "*/node_modules/*" "*/__pycache__/*" "*/dist/*" "*/build/*" "*.mp4"
           cd ..
           ls -lh doomsday-unified-bundle.zip
 
-      - name: Create releases folder and copy zip
+      - name: Create minified zip archive (no media)
+        run: |
+          cd bundle
+          zip -r ../doomsday-unified-bundle-minified.zip . -x "*/.*" "*/node_modules/*" "*/__pycache__/*" "*/dist/*" "*/build/*" "*.mp4" "*.mp3" "*.wav" "*.png" "*.jpg" "*.jpeg" "*.gif" "*.webp" "*.svg" "*.ico"
+          cd ..
+          ls -lh doomsday-unified-bundle-minified.zip
+
+      - name: Create releases folder and copy zips
         run: |
           mkdir -p releases
           cp doomsday-unified-bundle.zip releases/
+          cp doomsday-unified-bundle-minified.zip releases/
 
-      - name: Commit and push zip to repository
+      - name: Commit and push zips to repository
         run: |
           git config user.email "dk14@github.com"
           git config user.name "dk14"
-          git add releases/doomsday-unified-bundle.zip
-          git diff-index --quiet HEAD || git commit -m "Update unified bundle - $(date +%Y-%m-%d\ %H:%M:%S)"
+          git add releases/doomsday-unified-bundle.zip releases/doomsday-unified-bundle-minified.zip
+          git diff-index --quiet HEAD || git commit -m "Update unified bundles - $(date +%Y-%m-%d\ %H:%M:%S)"
           git push
