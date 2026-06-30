@@ -15,44 +15,37 @@ jobs:
       - name: Checkout doomsday-hub
         uses: actions/checkout@v4
         with:
-          repository: dk14/doomsday-hub
           path: bundle/doomsday-hub
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Checkout crypto repo
         uses: actions/checkout@v4
         with:
           repository: dk14/crypto
           path: bundle/crypto
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Checkout q repo
         uses: actions/checkout@v4
         with:
           repository: dk14/q
           path: bundle/q
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Checkout warriors repo
         uses: actions/checkout@v4
         with:
           repository: dk14/warriors
           path: bundle/warriors
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Checkout doomsday-website repo
         uses: actions/checkout@v4
         with:
           repository: dk14/doomsday-website
           path: bundle/doomsday-website
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Checkout mega-peers repo
         uses: actions/checkout@v4
         with:
           repository: dk14/mega-peers
           path: bundle/mega-peers
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create unified zip archive
         run: |
@@ -60,22 +53,15 @@ jobs:
           zip -r ../doomsday-unified-bundle.zip . -x "*/.*" "*/node_modules/*" "*/__pycache__/*" "*/dist/*" "*/build/*"
           ls -lh ../doomsday-unified-bundle.zip
 
-      - name: Checkout main branch for commit
-        uses: actions/checkout@v4
-        with:
-          path: repo-main
-          token: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Copy zip to releases folder
         run: |
-          mkdir -p repo-main/releases
-          cp doomsday-unified-bundle.zip repo-main/releases/
+          mkdir -p releases
+          cp doomsday-unified-bundle.zip releases/
 
       - name: Commit and push zip to repository
         run: |
-          cd repo-main
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.email "dk14@github.com"
+          git config user.name "dk14"
           git add releases/doomsday-unified-bundle.zip
-          git commit -m "Update unified bundle - $(date +%Y-%m-%d\ %H:%M:%S)" || echo "No changes to commit"
+          git diff-index --quiet HEAD || git commit -m "Update unified bundle - $(date +%Y-%m-%d\ %H:%M:%S)"
           git push
