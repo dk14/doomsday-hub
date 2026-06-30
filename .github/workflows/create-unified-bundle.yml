@@ -8,6 +8,9 @@ on:
     types: [repo_updated]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   create-bundle:
     runs-on: ubuntu-latest
