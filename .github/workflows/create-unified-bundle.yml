@@ -69,8 +69,11 @@ jobs:
           prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
 
-      - name: List generated artifacts
-        run: |
-          echo "Bundle created successfully!"
-          ls -lh doomsday-unified-*.zip
+      - name: Upload zip as artifact instead
+        uses: actions/upload-artifact@v4
+        with:
+          name: doomsday-unified-bundle
+          path: doomsday-unified-*.zip
+          retention-days: 90
