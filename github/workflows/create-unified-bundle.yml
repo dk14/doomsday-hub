@@ -1,0 +1,76 @@
+name: Create Unified Bundle
+
+on:
+  push:
+    branches:
+      - main
+  repository_dispatch:
+    types: [repo_updated]
+  workflow_dispatch:
+
+jobs:
+  create-bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout doomsday-hub
+        uses: actions/checkout@v4
+        with:
+          repository: dk14/doomsday-hub
+          path: bundle/doomsday-hub
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout crypto repo
+        uses: actions/checkout@v4
+        with:
+          repository: dk14/crypto
+          path: bundle/crypto
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout q repo
+        uses: actions/checkout@v4
+        with:
+          repository: dk14/q
+          path: bundle/q
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout warriors repo
+        uses: actions/checkout@v4
+        with:
+          repository: dk14/warriors
+          path: bundle/warriors
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout doomsday-website repo
+        uses: actions/checkout@v4
+        with:
+          repository: dk14/doomsday-website
+          path: bundle/doomsday-website
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout mega-peers repo
+        uses: actions/checkout@v4
+        with:
+          repository: dk14/mega-peers
+          path: bundle/mega-peers
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create unified zip archive
+        run: |
+          cd bundle
+          zip -r ../doomsday-unified-$(date +%Y%m%d-%H%M%S).zip . -x "*/.*" "*/node_modules/*" "*/__pycache__/*" "*/dist/*" "*/build/*"
+          ls -lh ../doomsday-unified-*.zip
+
+      - name: Upload zip to releases
+        uses: softprops/action-gh-release@v1
+        with:
+          files: doomsday-unified-*.zip
+          tag_name: bundle-${{ github.run_id }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: List generated artifacts
+        run: |
+          echo "Bundle created successfully!"
+          ls -lh doomsday-unified-*.zip
