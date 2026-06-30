@@ -1,6 +1,6 @@
 # doomsday-hub
 
-Bundle of everything doomsday will be in releases to this repo
+Bundle of everything doomsday will be in a zip in this repo
 
 - crypto repo contains audit tool, website (without intro), Fun & Profit text-game, https://crypto.doomsdayexplorer.online/
 - q repo contains research demonstrating quantum observations can be reproduced deterministically, https://q.doomsdayexplorer.online/
