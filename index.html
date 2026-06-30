@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doomsday Hub - Unified Bundle</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            color: #e0e0e0;
+            font-family: 'Courier New', monospace;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: rgba(20, 20, 35, 0.8);
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            color: #ff4444;
+            margin-bottom: 10px;
+            font-size: 2em;
+            text-shadow: 0 0 10px rgba(255, 68, 68, 0.3);
+        }
+
+        .subtitle {
+            color: #888;
+            margin-bottom: 30px;
+            font-size: 0.9em;
+        }
+
+        .description {
+            color: #b0b0b0;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        .repos-list {
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 3px solid #ff4444;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+
+        .repos-list h3 {
+            color: #ff6666;
+            margin-bottom: 12px;
+            font-size: 1em;
+        }
+
+        .repos-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .repos-list li {
+            color: #a0a0a0;
+            margin-bottom: 8px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .repos-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #ff4444;
+        }
+
+        .download-section {
+            text-align: center;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff4444 0%, #cc3333 100%);
+            color: #fff;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 1.1em;
+            border: 2px solid #ff4444;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 68, 68, 0.2);
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(135deg, #ff6666 0%, #ff4444 100%);
+            box-shadow: 0 6px 20px rgba(255, 68, 68, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .download-btn:active {
+            transform: translateY(0);
+        }
+
+        .info-text {
+            color: #666;
+            margin-top: 20px;
+            font-size: 0.85em;
+        }
+
+        .footer {
+            color: #555;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.85em;
+        }
+
+        a {
+            color: #ff8888;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚠️ DOOMSDAY HUB</h1>
+        <p class="subtitle">Unified Repository Bundle</p>
+
+        <div class="description">
+            Complete collection of dk14's research repositories, packaged together for offline access and AI agent consumption. All projects bundled and ready for deployment.
+        </div>
+
+        <div class="repos-list">
+            <h3>Included Repositories</h3>
+            <ul>
+                <li><strong>crypto</strong> - Audit tool, website, Fun & Profit text-game</li>
+                <li><strong>q</strong> - Quantum observation research</li>
+                <li><strong>warriors</strong> - HCI & abstract machine research</li>
+                <li><strong>doomsday-website</strong> - Main website & AI FAQs</li>
+                <li><strong>mega-peers</strong> - Oracle platform & p2p trading demo</li>
+            </ul>
+        </div>
+
+        <div class="download-section">
+            <a href="https://dk14.github.io/doomsday-hub/releases/doomsday-unified-bundle.zip" class="download-btn">
+                📦 DOWNLOAD BUNDLE
+            </a>
+            <div class="info-text">
+                Latest unified archive with all repositories
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>For AI agents without web crawl capability</p>
+            <p style="margin-top: 10px;">
+                <a href="https://github.com/dk14/doomsday-hub">View on GitHub</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
