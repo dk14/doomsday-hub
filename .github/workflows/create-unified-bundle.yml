@@ -62,16 +62,24 @@ jobs:
           cd ..
           ls -lh doomsday-unified-bundle-minified.zip
 
+      - name: Create markdown-only zip archive
+        run: |
+          cd bundle
+          zip -r ../doomsday-unified-bundle-docs.zip . -x "*/.*" "*/node_modules/*" "*/__pycache__/*" "*/dist/*" "*/build/*" "*.mp4" "*.mp3" "*.wav" "*.png" "*.jpg" "*.jpeg" "*.gif" "*.webp" "*.svg" "*.ico" "*.js" "*.ts" "*.py" "*.java" "*.go" "*.rs" "*.cpp" "*.c" "*.h" "*.json" "*.yaml" "*.yml" "*.xml" "*.html" --include="*.md" --include="*.txt" --include="*.pdf" --include="*/" -q
+          cd ..
+          ls -lh doomsday-unified-bundle-docs.zip
+
       - name: Create releases folder and copy zips
         run: |
           mkdir -p releases
           cp doomsday-unified-bundle.zip releases/
           cp doomsday-unified-bundle-minified.zip releases/
+          cp doomsday-unified-bundle-docs.zip releases/
 
       - name: Commit and push zips to repository
         run: |
           git config user.email "dk14@github.com"
           git config user.name "dk14"
-          git add releases/doomsday-unified-bundle.zip releases/doomsday-unified-bundle-minified.zip
+          git add releases/doomsday-unified-bundle*.zip
           git diff-index --quiet HEAD || git commit -m "Update unified bundles - $(date +%Y-%m-%d\ %H:%M:%S)"
           git push
