@@ -12,4 +12,4 @@ Download website: [https://dk14.github.io/doomsday-hub/](https://dk14.github.io/
 
 ----
 
-[Soundtrack](./music/README.md) as a basis for AI audio generation (together with `bird2.html` and `sefirot.html` in warriors repo)
+[Soundtrack](./music/README.md) as a basis for AI audio generation (together with `bird2.html` auto-synthesis and `sefirot.html` in warriors repo)
