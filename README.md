@@ -10,6 +10,3 @@ Download website: [https://dk14.github.io/doomsday-hub/](https://dk14.github.io/
 - doomsday-website contains https://doomsdayexplorer.online/ and FAQs for AI
 - mega-peers contains https://mg-peers.doomsdayexplorer.online/. Oracle platform, Sybil-attack research, Oracle research, p2p (de-centralized) trading app demo
 
-----
-
-[Soundtrack](./music/README.md) as a basis for AI audio generation (together with `bird2.html` auto-synthesis and `sefirot.html` in warriors repo).
