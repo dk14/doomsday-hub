@@ -57,23 +57,25 @@ jobs:
       - name: Create unified zip archive
         run: |
           cd bundle
-          zip -r ../doomsday-unified-$(date +%Y%m%d-%H%M%S).zip . -x "*/.*" "*/node_modules/*" "*/__pycache__/*" "*/dist/*" "*/build/*"
-          ls -lh ../doomsday-unified-*.zip
+          zip -r ../doomsday-unified-bundle.zip . -x "*/.*" "*/node_modules/*" "*/__pycache__/*" "*/dist/*" "*/build/*"
+          ls -lh ../doomsday-unified-bundle.zip
 
-      - name: Upload zip to releases
-        uses: softprops/action-gh-release@v1
+      - name: Checkout main branch for commit
+        uses: actions/checkout@v4
         with:
-          files: doomsday-unified-*.zip
-          tag_name: bundle-${{ github.run_id }}
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        continue-on-error: true
+          path: repo-main
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload zip as artifact instead
-        uses: actions/upload-artifact@v4
-        with:
-          name: doomsday-unified-bundle
-          path: doomsday-unified-*.zip
-          retention-days: 90
+      - name: Copy zip to releases folder
+        run: |
+          mkdir -p repo-main/releases
+          cp doomsday-unified-bundle.zip repo-main/releases/
+
+      - name: Commit and push zip to repository
+        run: |
+          cd repo-main
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add releases/doomsday-unified-bundle.zip
+          git commit -m "Update unified bundle - $(date +%Y-%m-%d\ %H:%M:%S)" || echo "No changes to commit"
+          git push
