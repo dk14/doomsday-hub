@@ -1,6 +1,8 @@
 # doomsday-hub
 
-Bundle of everything doomsday will be in a zip in this repo
+Bundle of everything doomsday is a zip in `releases` directory of this repo
+
+Download website: [https://dk14.github.io/doomsday-hub/](https://dk14.github.io/doomsday-hub/)
 
 - crypto repo contains audit tool, website (without intro), Fun & Profit text-game, https://crypto.doomsdayexplorer.online/
 - q repo contains research demonstrating quantum observations can be reproduced deterministically, https://q.doomsdayexplorer.online/
