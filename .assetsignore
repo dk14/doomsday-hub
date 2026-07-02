@@ -2,6 +2,10 @@
 
 releases/doomsday-unified-bundle.zip
 
+**/.git
+**/.DS_Store
+**/node_modules
+
 lib-cov
 *.seed
 *.log
