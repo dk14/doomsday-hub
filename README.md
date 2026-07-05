@@ -1,6 +1,6 @@
 # doomsday-hub
 
-Bundle of everything doomsday is a zip in `releases` directory of this repo
+Bundle of everything doomsday is a zip in `releases` directory of this repo. [DOWNLOAD BUNDLE](https://github.com/dk14/doomsday-hub/blob/main/releases/doomsday-unified-bundle.zip)
 
 Download website: [https://dk14.github.io/doomsday-hub/](https://dk14.github.io/doomsday-hub/)
 
