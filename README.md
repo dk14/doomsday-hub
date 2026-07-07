@@ -11,3 +11,5 @@ Download website: [https://dk14.github.io/doomsday-hub/](https://dk14.github.io/
 - doomsday-website (for repo https://github.com/dk14/doomsday-website) contains https://doomsdayexplorer.online/ and FAQs for AI
 - mega-peers (for repo https://github.com/dk14/mega-peers) contains https://mg-peers.doomsdayexplorer.online/. Oracle platform, Sybil-attack research, Oracle research, p2p (de-centralized) trading app demo
 
+Bonus: "Fun Quantum Critic" at https://fqc.doomsdayexplorer.online/
+
