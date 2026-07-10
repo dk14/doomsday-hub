@@ -137,6 +137,103 @@
             min-width: 200px;
         }
 
+/* -------------------------------------------------------
+   1️⃣  Compact size & dark container
+   ------------------------------------------------------- */
+audio {
+    /* size – change these values if you need it even smaller */
+    display: block;                     /* needed for width/height to apply */
+    width: 260px;                        /* total width of the bar   */
+    height: 34px;                        /* enough for the built‑in controls */
+    max-width: 100%;                    /* stay responsive on tiny screens */
+    margin: 1rem auto;                  /* centre on the page */
+
+    /* dark “matrix” background – replaces the default grey strip */
+    background:#111;                     /* dark panel */
+    border-radius:5px;
+    box-shadow:0 0 8px rgba(0,255,0,.12);
+
+    /* ---------------------------------------------------
+       2️⃣  Colour‑filter – turn the native UI green
+       --------------------------------------------------- */
+    filter:
+        invert(12%)      /* start from the browser’s light UI */
+        sepia(20%)
+        saturate(70%)
+        grayscale(1)
+        contrast(99%);
+}
+
+/* -------------------------------------------------------
+   3️⃣  WebKit‑only pseudo‑elements (Chrome / Safari)
+   ------------------------------------------------------- */
+audio::-webkit-media-controls-panel,
+audio::-webkit-media-controls-enclosure {
+    background:#111;        /* same dark colour as the wrapper */
+    border-radius:5px;
+}
+
+/* make the play/pause icons glow green */
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-pause-button {
+    filter: hue-rotate(120deg) brightness(2) contrast(1.5);
+}
+
+/* hide the mute button – it wastes space in a tiny bar */
+audio::-webkit-media-controls-mute-button { display:none; }
+
+/* thin “scan‑line” timeline – feels like a Matrix data‑stream */
+audio::-webkit-media-controls-timeline {
+    background:#0c0;               /* bright matrix green */
+    height:2px !important;       /* make it a thin line */
+}
+
+/* -------------------------------------------------------
+   4️⃣  Fallback for Firefox / Edge (no WebKit pseudo‑elements)
+   ------------------------------------------------------- */
+audio {
+    color-scheme: dark;            /* forces a dark UI where the UA supports it */
+}
+
+/* -------------------------------------------------------
+   5️⃣  Matrix‑rain “animation” without ::after
+   ------------------------------------------------------- */
+/* We use a repeating‑linear‑gradient that moves vertically.
+   The gradient lives on the <audio> element itself, so no extra
+   pseudo‑element is required. */
+@keyframes matrix‑rain {
+    0%   { background-position:0 0; }
+    100% { background-position:0 100%; }
+}
+
+/* The gradient gives a subtle green “code rain” that scrolls
+   underneath the native controls. */
+audio {
+    /* keep the dark solid colour as the base, then layer the gradient */
+    background:
+        /* 1️⃣ solid dark base */
+        #111,
+        /* 2️⃣ moving translucent green stripes */
+        repeating-linear-gradient(
+            to bottom,
+            rgba(0,255,0,.02) 0%,
+            rgba(0,255,0,.07) 1%,
+            rgba(0,255,0,.02) 2%
+        );
+    background-blend-mode: overlay;   /* blend the two layers */
+    background-size: auto 100%;        /* height of the pattern = 100% */
+    animation: matrix‑rain 8s linear infinite;
+}
+
+/* -----------------------------------------------------------------
+   OPTIONAL: respect users who request reduced motion
+   ----------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    audio { animation:none; }
+}
+
+
+
         .download-btn:hover {
             background: linear-gradient(135deg, #ff6666 0%, #ff4444 100%);
             box-shadow: 0 6px 20px rgba(255, 68, 68, 0.4);
@@ -292,6 +389,8 @@
                     <li><strong>mega-peers</strong> - Oracle platform & p2p trading mechanics</li>
                 </ul>
             </div>
+            <br/>
+            "old school not cool" 90s carmageddon intro: <audio controls loop src="https://crypto.doomsdayexplorer.online/chats/btc-audit/docs/audio/cryptocallypse.mp3"></audio>
         </div>
 
         <div class="section">
