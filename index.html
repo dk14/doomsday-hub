@@ -531,13 +531,14 @@ audio {
   Object.assign(canvas.style, {
     position: 'fixed',
     inset: 0,
-    width: '100%',
-    height: '100%',
+    width: window.innerWidth,
+    height: window.innerHeight,
     zIndex: '-1',            // behind page elements
     pointerEvents: 'none',   // never block clicks
     background: 'linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%)'
   });
   document.body.appendChild(canvas);
+  
 
   /* --------------------------------------------------------------
      3️⃣  Load Butterchurn (the Milkdrop WebGL visualiser) as an ES‑module
@@ -587,6 +588,23 @@ audio {
     requestAnimationFrame(render);
   };
 
+  const setCanvasSize = () => {
+    const dpr = window.devicePixelRatio || 1;
+    const w   = window.innerWidth;
+    const h   = window.innerHeight;
+
+    // physical pixel buffer
+    canvas.width  = w * dpr;
+    canvas.height = h * dpr;
+
+    // CSS size (keeps the canvas filling the viewport)
+    canvas.style.width  = `${w}px`;
+    canvas.style.height = `${h}px`;
+
+    // Tell Butterchurn the **pixel** dimensions (not the CSS size)
+    if (visualizer) visualizer.setRendererSize(w * dpr, h * dpr);
+  };
+
   const startRender = async () => {
     // --------- create AudioContext on first interaction -----------------
     if (!initialized) {
@@ -604,6 +622,8 @@ audio {
         pixelRatio: window.devicePixelRatio
       });
 
+      setCanvasSize()
+
       // Feed audio into Butterchurn
       visualizer.connectAudio(sourceNode);
       // Load a preset (feel free to replace this with any preset you like)
@@ -611,7 +631,7 @@ audio {
 
       // Resize handling – Butterchurn uses setRendererSize()
       const onResize = () =>
-        visualizer.setRendererSize(window.innerWidth, window.innerHeight);
+        setCanvasSize()
       window.addEventListener('resize', onResize);
 
       console.log("init-ok")
