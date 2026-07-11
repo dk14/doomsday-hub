@@ -705,15 +705,19 @@ audio {
       render();               // kick‑off the animation loop
     }
 
+    overlay.style.cursor = 'crosshair'
+
     if (!canvas.dataset.hintShown) {
       canvas.dataset.hintShown = 'yes';
       showHintThenCountdown();
+      overlay.style.cursor = 'pointer'
     }
   };
 
   const stopRender = () => (rendering = false);
 
     const nextPreset = (blend = 2.5) => {
+      overlay.style.cursor = 'crosshair'
     presetIdx = (presetIdx + 1) % presetKeys.length;
     const preset = presets[presetKeys[presetIdx]];
     visualizer.loadPreset(preset, blend);
@@ -728,7 +732,7 @@ audio {
     zIndex: '-1',               // above body (z‑index 1) but still allows UI that
                                // have a higher z‑index (audio controls) to be clickable
     background: 'transparent',
-    cursor: 'pointer'
+    cursor: 'crosshair'
   });
   document.body.appendChild(overlay);
   overlay.addEventListener('click', () => {
