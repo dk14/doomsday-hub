@@ -752,6 +752,29 @@ audio {
   /* --------------------------------------------------------------
      7️⃣  Hook into the native audio controls
      -------------------------------------------------------------- */
+  
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      // stop visual updates, keep the AudioContext running
+      stopRender();
+    } else {
+      // page is back in foreground – ensure rendering resumes
+      if (!audioEl.paused) startRender();
+    }
+  });
+
+  // Some iOS versions fire a `statechange` on the AudioContext when
+  // the app goes to background. If that happens we instantly resume
+  // it so playback is not interrupted.
+  const maybeResume = () => {
+    if (audioCtx && audioCtx.state === 'suspended' && !audioEl.paused) {
+      audioCtx.resume();
+    }
+  };
+  
+  if (audioCtx) audioCtx.addEventListener('statechange', maybeResume);
+  
+  
   audioEl.addEventListener('play',  startRender);
   audioEl.addEventListener('pause', stopRender);
   audioEl.addEventListener('ended', stopRender);
