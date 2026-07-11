@@ -474,5 +474,100 @@ audio {
             document.getElementById("domain-link").style.display = "none"
         }
     </script>
+    <script>
+(async () => {
+  // ------- 1️⃣  Get the (only) audio element on the page -----------------
+  const audio = document.querySelector('audio');
+  if (!audio) return;   // nothing to visualise
+
+  // ------- 2️⃣  Create a full‑screen canvas that lives behind everything ---
+  const canvas = document.createElement('canvas');
+  Object.assign(canvas.style, {
+    position: 'fixed',
+    inset: 0,
+    width: '100%',
+    height: '100%',
+    zIndex: '-1',          // behind the page content
+    pointerEvents: 'none'  // never block clicks
+  });
+  document.body.appendChild(canvas);
+
+  // ------- 3️⃣  Load Butterchurn (the Milkdrop WebGL visualiser) ----------
+ const butterchurnModule = await import(
+    'https://unpkg.com/butterchurn@3.0.0-beta.5/dist/butterchurn.js'
+  );
+  const butterchurn = butterchurnModule.default; 
+  // ------- 4️⃣  Load preset bundles (base + extra) ------------------------
+  const loadScript = src =>
+    new Promise(resolve => {
+      const s = document.createElement('script');
+      s.src = src;
+      s.onload = resolve;
+      document.head.appendChild(s);
+    });
+
+  await loadScript('https://unpkg.com/butterchurn-presets@3.0.0-beta.4/dist/base.min.js');
+  await loadScript('https://unpkg.com/butterchurn-presets@3.0.0-beta.4/dist/extra.min.js');
+
+  // Combine all presets that were attached to the global `window` object
+  const presets = {
+    ...(window.base?.default || {}),
+    ...(window.extra?.default || {})
+  };
+  const presetKeys = Object.keys(presets);
+  const randomPreset = presets[presetKeys[Math.floor(Math.random() * presetKeys.length)]];
+
+  // ------- 5️⃣  Build a tiny Web‑Audio graph --------------------------------
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  const audioCtx = new AudioContext();
+
+  // MediaElementSource lets Butterchurn analyse the <audio> element directly
+  const sourceNode = audioCtx.createMediaElementSource(audio);
+  // Connect to speakers (so we still hear the music)
+  sourceNode.connect(audioCtx.destination);
+
+  // ------- 6️⃣  Initialise the Butterchurn visualiser --------------------
+  const visualizer = butterchurn.createVisualizer(audioCtx, canvas, {
+    width: window.innerWidth,
+    height: window.innerHeight,
+    pixelRatio: window.devicePixelRatio,
+    // optional: reduce GPU load on very low‑end devices
+    // useRenderQueue: false,
+  });
+  // Feed the audio source to the visualiser
+  visualizer.connectAudio(sourceNode);
+  // Load a random preset (you can replace this with any preset name)
+  visualizer.loadPreset(randomPreset, 0);
+
+  // ------- 7️⃣  Render loop (runs only while music is playing) ----------
+  let rendering = false;
+  const render = () => {
+    if (!rendering) return;
+    visualizer.render();
+    requestAnimationFrame(render);
+  };
+
+  const startRendering = async () => {
+    // Some browsers keep the AudioContext suspended until a user gesture
+    if (audioCtx.state === 'suspended') await audioCtx.resume();
+    if (!rendering) {
+      rendering = true;
+      render();
+    }
+  };
+  const stopRendering = () => (rendering = false);
+
+  // ------- 8️⃣  Hook into the native audio controls --------------------
+  audio.addEventListener('play', startRendering);
+  audio.addEventListener('pause', stopRendering);
+  audio.addEventListener('ended', stopRendering);
+
+  // ------- 9️⃣  Keep canvas size in sync with the viewport ---------------
+  window.addEventListener('resize', () => {
+    visualizer.setSize(window.innerWidth, window.innerHeight);
+  });
+})();
+</script>
+
 </body>
 </html>
