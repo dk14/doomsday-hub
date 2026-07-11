@@ -7,6 +7,34 @@
     <link rel="icon" type="image/x-icon" href="https://crypto.doomsdayexplorer.online/chats/btc-audit/docs/game-icon.png">
 
     <style>
+
+      ::-webkit-scrollbar {
+  width: 12px;               /* vertical bar width   */
+  height: 12px;              /* horizontal bar height */
+  background: transparent; /* keep the track invisible */
+}
+::-webkit-scrollbar-track {
+  background: #111;                         /* same dark colour as your page bg */
+}
+::-webkit-scrollbar-thumb {
+  background-color: #2a2a2a;                /* dark thumb */
+  border-radius: 6px;
+  border: 3px solid #111;                     /* creates a small “gap” so the thumb doesn’t blend with the track */
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #3c3c3c;                /* a little lighter on hover */
+}
+
+/* Firefox – uses the standardized scrollbar properties */
+* {
+  scrollbar-width: thin;                     /* “thin” = ~12 px, “auto” = default */
+  scrollbar-color: #2a2a2a #111;             /* thumb colour, then track colour */
+}
+
+/* Optional: keep the thumb dark when the page is scrolled */
+html, body {
+  overflow: overlay;   /* ensures scrollbars overlay content (optional) */
+}
         * {
             margin: 0;
             padding: 0;
@@ -481,7 +509,7 @@ audio {
     const lockMeta = document.createElement('meta');
   lockMeta.name = 'darkreader-lock';
   document.head.appendChild(lockMeta);
-  
+
   /* --------------------------------------------------------------
      1️⃣  Grab the single <audio> element (no id needed)
      -------------------------------------------------------------- */
