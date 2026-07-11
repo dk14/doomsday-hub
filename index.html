@@ -623,7 +623,7 @@ audio {
     ...(window.extra?.default || {})
   };
   const presetKeys = Object.keys(presets);
-  let presetIdx = Math.floor(Math.random() * presetKeys.length);
+  let presetIdx = -1;
 
   /* --------------------------------------------------------------
      5️⃣  Variables that will be created on the first user‑action (play)
@@ -682,10 +682,16 @@ audio {
       // Feed audio into Butterchurn
       visualizer.connectAudio(sourceNode);
       // Load a preset (feel free to replace this with any preset you like)
-      console.log(presetIdx)
-      console.log(presetKeys[presetIdx])
-      visualizer.loadPreset(presets[presetKeys[presetIdx]], 0);
-      presetInfo.textContent = presetKeys[presetIdx];   // show initial name
+
+      if (presetIdx === -1) {
+        visualizer.loadPreset(presets['Flexi - alien web bouncer [26]'], 0);
+        presetInfo.textContent = 'Flexi - alien web bouncer [26]'
+        
+      } else {
+         visualizer.loadPreset(presets[presetKeys[presetIdx]], 0);
+         presetInfo.textContent = presetKeys[presetIdx];   // show initial name
+      }
+     
 
 
       // Resize handling – Butterchurn uses setRendererSize()
