@@ -511,6 +511,13 @@ audio {
   lockMeta.name = 'darkreader-lock';
   document.head.appendChild(lockMeta);
 
+    document.documentElement.style.background = 'linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%)';
+  // Remove the body background that was hiding the canvas
+  document.body.style.background = 'transparent';
+  // Ensure the page content stays above the canvas
+  document.body.style.position = 'relative';
+  document.body.style.zIndex = '1';
+
   /* --------------------------------------------------------------
      1️⃣  Grab the single <audio> element (no id needed)
      -------------------------------------------------------------- */
