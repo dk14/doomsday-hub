@@ -418,7 +418,9 @@ audio {
             <br/>
              <audio controls loop src="./music/cryptocallypse.mp3"></audio>
              <p id="tracks" style="text-align: center; display: none"> <a target="_blank" href="https://crypto.doomsdayexplorer.online/front#benefits">next</a>  | <a href="https://crypto.doomsdayexplorer.online/front#benefits" target="_blank">previous</a><br/><br/></p>
-            <p style="text-align: center">"old school <s>not</s> cool" 90s cryptogeddon intro</p>
+             <p style="display: flex;justify-content: center;"><video style="display: none;
+     justify-content: center;" controls width=300 height = 300 id="fsVideo"></video></p>
+             <p style="text-align: center">"old school <s>not</s> cool" 90s cryptogeddon intro</p>
             
         </div>
 
@@ -749,35 +751,61 @@ audio {
 
     nextPreset();               // change the visualisation
   });
-  /* --------------------------------------------------------------
-     7️⃣  Hook into the native audio controls
-     -------------------------------------------------------------- */
-  
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-      // stop visual updates, keep the AudioContext running
-      stopRender();
-    } else {
-      // page is back in foreground – ensure rendering resumes
-      if (!audioEl.paused) startRender();
-    }
-  });
 
-  // Some iOS versions fire a `statechange` on the AudioContext when
-  // the app goes to background. If that happens we instantly resume
-  // it so playback is not interrupted.
-  const maybeResume = () => {
-    if (audioCtx && audioCtx.state === 'suspended' && !audioEl.paused) {
-      audioCtx.resume();
-    }
-  };
-  
-  if (audioCtx) audioCtx.addEventListener('statechange', maybeResume);
-  
-  
-  audioEl.addEventListener('play',  startRender);
   audioEl.addEventListener('pause', stopRender);
   audioEl.addEventListener('ended', stopRender);
+
+
+  function isMobile() {
+    // simple UA check – good enough for iOS / Android only
+    return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  }
+
+  function requestFullScreen(videoEl) {
+    // Chrome / Android
+    if (videoEl.requestFullscreen) {
+      videoEl.requestFullscreen();
+    }
+    // Safari on iOS (older & current versions)
+    else if (videoEl.webkitEnterFullscreen) {
+      videoEl.webkitEnterFullscreen();
+    }
+  }
+
+  audioEl.addEventListener('play', async () => {
+    startRender();
+  })
+
+
+  const video = document.getElementById('fsVideo');
+
+  if (isMobile()){
+
+      video.id = 'fsVideo';
+      video.style.width = 300;
+      video.style.height = 300
+      video.style.display = 'block'
+      video.autoplay = false;
+      video.muted    = false;        // we don’t need sound from this video
+      video.playsInline = true;    // iOS Safari inline‑play flag
+
+      video.onplay = () => {
+        audioEl.play()
+        audioCtx.resume()
+        requestFullScreen(video)
+      }
+
+      video.onpause = () => {
+        audioEl.pause()
+      }
+
+      const stream = canvas.captureStream(30);   // 30 FPS
+      video.srcObject = stream;
+
+  }
+    
+
+
 })();
 </script>
 
