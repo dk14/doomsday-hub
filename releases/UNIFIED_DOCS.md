@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-13T11:00:29.592357*
+*Generated: 2026-07-13T11:02:05.410486*
 ---
 
 ## CRYPTO
@@ -60106,7 +60106,7 @@ btn.addEventListener('click', e => {
 
     let i = 0;
 
-    while (i < 20) {
+    while (i < 10) {
       i++
       handleMove(e.clientX + i, e.clientY + i)
 
@@ -60116,7 +60116,6 @@ btn.addEventListener('click', e => {
             '*'
           );  
       }
-        console.log('hhhh')
 
     }
     
