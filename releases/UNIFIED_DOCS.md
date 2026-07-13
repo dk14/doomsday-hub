@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-13T10:53:30.088675*
+*Generated: 2026-07-13T10:54:34.431780*
 ---
 
 ## CRYPTO
@@ -59647,7 +59647,7 @@ Machine readable ld+json Q & A repeated here in body.
 </script>
 </head>
 
-<body>
+<body style="user-select: none">
   <div style="display:none">
   List of Project FAQs (prepared for humans and machines):
   <a href="./pico-faq.md" style="display:none">ultra-short machine/AI/human FAQ in Markdown</a>
@@ -60025,6 +60025,8 @@ window.addEventListener('touchmove', e => {
   handleMove(t.clientX, t.clientY);
 });
 
+
+
 const rng = mulberry32(0x1a2b3c4d);  
 
 function draw(){
@@ -60100,6 +60102,28 @@ btn.addEventListener('click', e => {
 
 <script>
 
+  window.addEventListener('click', function(e) { 
+    const iframe = document.getElementById('hci');
+
+    let i = 0;
+
+    while (i < 20) {
+      i++
+      handleMove(e.clientX + i, e.clientY + i)
+
+      if (iframe?.contentWindow) {
+          iframe.contentWindow.postMessage(
+            { type: 'parent-mousemove', x: e.clientX + i, y: e.clientY + i },
+            '*'
+          );  
+      }
+        console.log('hhhh')
+
+    }
+    
+      
+  }, false);
+
   function switchToFireflyDemo() {
     const wrapper = document.getElementById('hciwrapper');
     wrapper.style.opacity = 0.2
@@ -60109,22 +60133,19 @@ btn.addEventListener('click', e => {
     iframe.src = "https://crypto.doomsdayexplorer.online/firefly.html"
 
     // Listen for mouse moves on the parent document
-    document.addEventListener('mousemove', e => {
-      
-      // Send the coordinates to the iframe
-      
-      
-      if (iframe?.contentWindow) {
-        
-        iframe.contentWindow.postMessage(
-          { type: 'parent-mousemove', x: e.clientX, y: e.clientY },
-          '*'
-        );
-      }
-    });
+    
 
   }
 
+window.addEventListener('mousemove', e => {
+  const iframe = document.getElementById('hci');
+  if (iframe?.contentWindow) {
+    iframe.contentWindow.postMessage(
+      { type: 'parent-mousemove', x: e.clientX, y: e.clientY },
+      '*'
+    );
+  }
+});
 
 if (Date.now() % 2 == 0) {
   switchToFireflyDemo()
