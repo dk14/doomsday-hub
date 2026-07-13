@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-13T11:40:21.060570*
+*Generated: 2026-07-13T11:42:38.800353*
 ---
 
 ## CRYPTO
@@ -22761,6 +22761,7 @@ audio {
     if (choice < 3) {
       document.querySelectorAll(".img-qr").forEach(element => {
         element.width = "200"
+        element.height = "200"
       });
 
       const choice4 = Date.now() % 2
@@ -23221,7 +23222,7 @@ Notes:
     </div>
     </div>
     
-    <a href="#bc1qekvmkczge3hxrvwdf2lj3yyvgjnparn3fdf9lg" title="💰 Join IRL profit-share pool and play Fun & Profit AI IRL! 🌐"><img class="img-qr" src="./chats/btc-audit/docs/donations.png"></a>
+    <a href="#bc1qekvmkczge3hxrvwdf2lj3yyvgjnparn3fdf9lg" title="💰 Join IRL profit-share pool and play Fun & Profit AI IRL! 🌐"><img class="img-qr" src="./chats/btc-audit/docs/donations.png" width="400" height="400"></a>
     <p>𝄃𝄃𝄂𝄂𝄀𝄁𝄃𝄂𝄂𝄃 <i>or, scan the bitcoin QR code with a mobile device</i> 𝄃𝄃𝄂𝄂𝄀𝄁𝄃𝄂𝄂𝄃 </p>
 
     <!-- Feature bid -->
