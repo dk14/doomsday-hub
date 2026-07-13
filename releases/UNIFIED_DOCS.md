@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-13T05:52:41.356913*
+*Generated: 2026-07-13T05:59:53.401816*
 ---
 
 ## CRYPTO
@@ -20969,7 +20969,7 @@ async function chat(messages, apiKey) {
     <link rel="icon" href="./favicon.png">
      <title>Firefly</title>
     </head>
-    <body bgcolor="black" style="overflow: hidden; user-select: none;">
+    <body bgcolor="black" style="overflow: hidden; user-select: none; cursor: pointer">
        <button  id ="start" style="font-family:'Crafty Girls'; border: 0px solid green; background-color: rgba(0,0,0,0); color: black; z-index: 100; font-size: 40px;"  onclick="console.log('hello'); DeviceMotionEvent.requestPermission()">START</button>
       
        <div style = "display: none; text-align: center;" id="settings">
