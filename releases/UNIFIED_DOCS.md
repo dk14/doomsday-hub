@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-13T06:07:26.737918*
+*Generated: 2026-07-13T06:10:09.086514*
 ---
 
 ## CRYPTO
@@ -26257,29 +26257,45 @@ btn.addEventListener('click', e => {
 
 <script>
 
-if (Date.now() % 2 == 0) {
-  const wrapper = document.getElementById('hciwrapper');
-  wrapper.style.opacity = 0.2
+  function switchToFireflyDemo() {
+    const wrapper = document.getElementById('hciwrapper');
+    wrapper.style.opacity = 0.2
 
-  const iframe = document.getElementById('hci');
+    const iframe = document.getElementById('hci');
 
-  iframe.src = "https://crypto.doomsdayexplorer.online/firefly.html"
+    iframe.src = "https://crypto.doomsdayexplorer.online/firefly.html"
 
-  // Listen for mouse moves on the parent document
-  document.addEventListener('mousemove', e => {
-    
-    // Send the coordinates to the iframe
-    
-    
-    if (iframe?.contentWindow) {
+    // Listen for mouse moves on the parent document
+    document.addEventListener('mousemove', e => {
       
-      iframe.contentWindow.postMessage(
-        { type: 'parent-mousemove', x: e.clientX, y: e.clientY },
-        '*'
-      );
-    }
-  });
+      // Send the coordinates to the iframe
+      
+      
+      if (iframe?.contentWindow) {
+        
+        iframe.contentWindow.postMessage(
+          { type: 'parent-mousemove', x: e.clientX, y: e.clientY },
+          '*'
+        );
+      }
+    });
+
+  }
+
+if (Date.now() % 2 == 0) {
+  switchToFireflyDemo()
 }
+
+window.addEventListener('message', e => {
+    const key = e.message ? 'message' : 'data';
+    const data = e[key];
+
+    if (data === 'click') {
+      switchToFireflyDemo()
+    }
+
+    // ...
+},false);
   
 </script>
 
