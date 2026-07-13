@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-13T08:25:51.568189*
+*Generated: 2026-07-13T08:47:36.570301*
 ---
 
 ## CRYPTO
@@ -25268,6 +25268,13 @@ footer a:hover{color:var(--c-accent);}
     z-index:10;                    /* above the canvas */
 }
 
+video:fullscreen,
+video:-webkit-full-screen,
+video:-moz-full-screen,
+video:-ms-fullscreen {
+    opacity: 1;        /* fully opaque */
+}
+
 
 </style>
 
@@ -26162,6 +26169,36 @@ restoreState();   // put wrapper back where the user left it
 </script>
     </div>
   </div>
+
+  <script>
+    const vid = document.querySelector('video');   // or document.getElementById('myVideo')
+
+function handleFullScreenChange() {
+    const isFullScreen =
+        document.fullscreenElement ||
+        document.webkitFullscreenElement ||
+        document.mozFullScreenElement ||
+        document.msFullscreenElement;
+
+    // When the video is the fullscreen element, set opacity to 1.
+    // Otherwise restore the dimmed opacity you want for the normal view.
+    if (isFullScreen === vid) {
+        vid.style.opacity = '1';
+        vid.style.filter = "drop-shadow(0px 0px 10px #FFFFFF50)"
+        
+    } else {
+        vid.style.opacity = '0.3';   // same value as in the CSS rule
+        vid.style.filter = "drop-shadow(0px 0px 10px yellow)"
+    }
+}
+
+// Register the event for every vendor prefix
+document.addEventListener('fullscreenchange',       handleFullScreenChange);
+document.addEventListener('webkitfullscreenchange', handleFullScreenChange);
+document.addEventListener('mozfullscreenchange',    handleFullScreenChange);
+document.addEventListener('MSFullscreenChange',    handleFullScreenChange);
+
+  </script>
 
 <script>
 function mulberry32(a){
