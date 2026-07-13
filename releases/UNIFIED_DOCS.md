@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-13T06:17:21.093390*
+*Generated: 2026-07-13T07:30:53.614554*
 ---
 
 ## CRYPTO
@@ -23519,6 +23519,8 @@ audioEl.addEventListener('ended', () => {
     document.getElementById('contin').innerText="Enter"
 
 });
+
+document.getElementById("bc1qekvmkczge3hxrvwdf2lj3yyvgjnparn3fdf9lg").focus()
 
 /* -----------------------------------------------------------------
    5️⃣ (Optional) Graceful fallback for browsers without Web Audio
