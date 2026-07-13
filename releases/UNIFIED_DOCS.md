@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-13T09:44:11.257997*
+*Generated: 2026-07-13T09:50:37.266218*
 ---
 
 ## CRYPTO
@@ -26080,7 +26080,7 @@ footer a:hover{color:var(--c-accent);}
          position:absolute;
          pointer-events: all;
          z-index: 10;
-         top:-1px; left:0; right:0; height:3px;
+         bottom:0px; left:0; right:0; height:3px;
          background:rgba(0,0,0,0);   /* invisible */
          cursor:move;            /* optional hint */
        "></div>
@@ -59651,7 +59651,7 @@ Machine readable ld+json Q & A repeated here in body.
          position:absolute;
          pointer-events: all;
          z-index: 10;
-         top:-1px; left:0; right:0; height:3px;
+         bottom:0px; left:0; right:0; height:3px;
          background:rgba(0,0,0,0);   /* invisible */
          cursor:move;            /* optional hint */
        "></div>
