@@ -69,6 +69,118 @@ jobs:
           cd ..
           ls -lh doomsday-unified-bundle-docs.zip
 
+      - name: Create unified markdown file
+        run: |
+          python3 << 'EOF'
+          import os
+          import re
+          from datetime import datetime
+          from pathlib import Path
+
+          # Define the order and directory mapping
+          repos_order = ['crypto', 'doomsday-website', 'warriors', 'q', 'mega-peers']
+          
+          # File extensions to include
+          md_extensions = {'.md'}
+          html_extensions = {'.html'}
+          code_extensions = {'.js', '.jsx', '.ts', '.tsx'}
+
+          def should_include_file(file_path):
+              """Check if file should be included in the unified markdown."""
+              # Skip hidden files and common build/node_modules directories
+              parts = Path(file_path).parts
+              if any(part.startswith('.') for part in parts[:-1]):
+                  return False
+              if any(part in ['node_modules', '__pycache__', 'dist', 'build'] for part in parts):
+                  return False
+              
+              ext = Path(file_path).suffix.lower()
+              return ext in (md_extensions | html_extensions | code_extensions)
+
+          def get_file_category(file_path):
+              """Determine file category for sorting."""
+              ext = Path(file_path).suffix.lower()
+              if ext in md_extensions:
+                  return 0  # Markdown first
+              elif ext in html_extensions:
+                  return 1  # HTML second
+              else:  # .js, .ts, etc.
+                  return 2  # Code last
+
+          def escape_code_fence(content):
+              """Escape triple backticks in code to prevent fence breaking."""
+              return content.replace('```', '`` ` ``')
+
+          output = []
+          output.append("# Doomsday Unified Documentation\n")
+          output.append(f"*Generated: {datetime.now().isoformat()}*\n")
+          output.append("---\n\n")
+
+          bundle_path = Path('bundle')
+
+          for repo in repos_order:
+              repo_path = bundle_path / repo
+              
+              if not repo_path.exists():
+                  continue
+              
+              output.append(f"## {repo.upper()}\n\n")
+              
+              # Collect all files
+              files = []
+              for root, dirs, filenames in os.walk(repo_path):
+                  # Filter out unwanted directories
+                  dirs[:] = [d for d in dirs if not d.startswith('.') and d not in ['node_modules', '__pycache__', 'dist', 'build']]
+                  
+                  for filename in filenames:
+                      file_path = os.path.join(root, filename)
+                      rel_path = os.path.relpath(file_path, repo_path)
+                      
+                      if should_include_file(rel_path):
+                          files.append((rel_path, file_path, get_file_category(rel_path)))
+              
+              # Sort files: by category, then by path
+              files.sort(key=lambda x: (x[2], x[0]))
+              
+              for rel_path, file_path, category in files:
+                  try:
+                      with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+                          content = f.read()
+                      
+                      # Create relative path with forward slashes
+                      display_path = rel_path.replace(os.sep, '/')
+                      ext = Path(file_path).suffix.lower()
+                      
+                      if ext in md_extensions:
+                          # Markdown files included as-is
+                          output.append(f"### {display_path}\n\n")
+                          output.append(content)
+                          output.append("\n\n")
+                      elif ext in html_extensions:
+                          # HTML in code block
+                          output.append(f"### {display_path}\n\n")
+                          output.append("```html\n")
+                          output.append(escape_code_fence(content))
+                          output.append("\n```\n\n")
+                      else:  # .js, .ts, etc.
+                          # Code in appropriate code block
+                          lang = 'javascript' if ext in {'.js', '.jsx'} else 'typescript'
+                          output.append(f"### {display_path}\n\n")
+                          output.append(f"```{lang}\n")
+                          output.append(escape_code_fence(content))
+                          output.append("\n```\n\n")
+                  except Exception as e:
+                      output.append(f"### {display_path}\n\n*Error reading file: {str(e)}*\n\n")
+          
+          # Write output file
+          with open('UNIFIED_DOCS.md', 'w', encoding='utf-8') as f:
+              f.write(''.join(output))
+          
+          # Check file size
+          size_mb = os.path.getsize('UNIFIED_DOCS.md') / (1024 * 1024)
+          print(f"Created UNIFIED_DOCS.md ({size_mb:.2f} MB)")
+          EOF
+
       - name: Create releases folder and copy zips
         run: |
           mkdir -p releases
