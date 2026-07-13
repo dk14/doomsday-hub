@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-13T10:00:53.612523*
+*Generated: 2026-07-13T10:06:20.951600*
 ---
 
 ## CRYPTO
@@ -26107,6 +26107,7 @@ footer a:hover{color:var(--c-accent);}
 const STORAGE_KEY = 'iframeWrapperState';   // localStorage key
 
 /* ---------- DOM elements ---------- */
+const frame   = document.getElementById('hci');
 const wrapper   = document.getElementById('hciwrapper');
 const dragStrip = document.getElementById('drag‑strip');
 
@@ -26145,10 +26146,13 @@ function restoreState() {
 /* ---------- drag handling ---------- */
 dragStrip.addEventListener('mousedown', e => {
   if (dragging) {
+    
     dragging = false;
+    frame.style.pointerEvents = "all"
     return
   }
   dragging = true;
+  frame.style.pointerEvents = "none"
   startX   = e.clientX;
   startY   = e.clientY;
   origLeft = wrapper.offsetLeft;
@@ -26166,6 +26170,7 @@ window.addEventListener('mousemove', e => {
 window.addEventListener('mouseup', () => {
   if (dragging) {
     dragging = false;
+    frame.style.pointerEvents = "all"
     saveState();          // persist new position
   }
 });
@@ -59686,6 +59691,7 @@ Machine readable ld+json Q & A repeated here in body.
 const STORAGE_KEY = 'iframeWrapperState';   // localStorage key
 
 /* ---------- DOM elements ---------- */
+const frame   = document.getElementById('hci');
 const wrapper   = document.getElementById('hciwrapper');
 const dragStrip = document.getElementById('drag‑strip');
 
@@ -59724,10 +59730,13 @@ function restoreState() {
 /* ---------- drag handling ---------- */
 dragStrip.addEventListener('mousedown', e => {
   if (dragging) {
+    
     dragging = false;
+    frame.style.pointerEvents = "all"
     return
   }
   dragging = true;
+  frame.style.pointerEvents = "none"
   startX   = e.clientX;
   startY   = e.clientY;
   origLeft = wrapper.offsetLeft;
@@ -59745,6 +59754,7 @@ window.addEventListener('mousemove', e => {
 window.addEventListener('mouseup', () => {
   if (dragging) {
     dragging = false;
+    frame.style.pointerEvents = "all"
     saveState();          // persist new position
   }
 });
