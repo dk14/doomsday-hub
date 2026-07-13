@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-13T05:59:53.401816*
+*Generated: 2026-07-13T06:07:26.737918*
 ---
 
 ## CRYPTO
@@ -36490,7 +36490,7 @@ footer a:hover{color:var(--c-accent);}
     html,body{
         height:100%;margin:0;background:#000;
         color:#0f0;font-family:"Courier New",Courier,monospace;
-        overflow:hidden;
+        overflow:hidden; cursor: pointer;
     }
     #terminal{
         padding:10px;box-sizing:border-box;
@@ -36634,6 +36634,7 @@ footer a:hover{color:var(--c-accent);}
     document.body.addEventListener('click', () => {
         const activeInput = document.querySelector('#terminal .input');
         if (activeInput) activeInput.focus();
+        window.parent.postMessage("click", "*")
     });
 })();
 </script>
