@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-13T07:30:53.614554*
+*Generated: 2026-07-13T07:32:34.519012*
 ---
 
 ## CRYPTO
@@ -23529,10 +23529,6 @@ if (!window.AudioContext) {
   console.warn('Web Audio API not supported – .note2 will not react to volume.');
 }
 </script>
-
-
-</body>
-</html>
 
 
 </body>
