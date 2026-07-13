@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-13T10:06:20.951600*
+*Generated: 2026-07-13T10:53:30.088675*
 ---
 
 ## CRYPTO
@@ -26042,7 +26042,7 @@ footer a:hover{color:var(--c-accent);}
 </script>
 </head>
 
-<body>
+<body style="user-select: none">
   <div style="display:none">
   List of Project FAQs (prepared for humans and machines):
   <a href="./pico-faq.md" style="display:none">ultra-short machine/AI/human FAQ in Markdown</a>
@@ -26420,6 +26420,8 @@ window.addEventListener('touchmove', e => {
   handleMove(t.clientX, t.clientY);
 });
 
+
+
 const rng = mulberry32(0x1a2b3c4d);  
 
 function draw(){
@@ -26495,6 +26497,28 @@ btn.addEventListener('click', e => {
 
 <script>
 
+  window.addEventListener('click', function(e) { 
+    const iframe = document.getElementById('hci');
+
+    let i = 0;
+
+    while (i < 20) {
+      i++
+      handleMove(e.clientX + i, e.clientY + i)
+
+      if (iframe?.contentWindow) {
+          iframe.contentWindow.postMessage(
+            { type: 'parent-mousemove', x: e.clientX + i, y: e.clientY + i },
+            '*'
+          );  
+      }
+        console.log('hhhh')
+
+    }
+    
+      
+  }, false);
+
   function switchToFireflyDemo() {
     const wrapper = document.getElementById('hciwrapper');
     wrapper.style.opacity = 0.2
@@ -26504,22 +26528,19 @@ btn.addEventListener('click', e => {
     iframe.src = "https://crypto.doomsdayexplorer.online/firefly.html"
 
     // Listen for mouse moves on the parent document
-    document.addEventListener('mousemove', e => {
-      
-      // Send the coordinates to the iframe
-      
-      
-      if (iframe?.contentWindow) {
-        
-        iframe.contentWindow.postMessage(
-          { type: 'parent-mousemove', x: e.clientX, y: e.clientY },
-          '*'
-        );
-      }
-    });
+    
 
   }
 
+window.addEventListener('mousemove', e => {
+  const iframe = document.getElementById('hci');
+  if (iframe?.contentWindow) {
+    iframe.contentWindow.postMessage(
+      { type: 'parent-mousemove', x: e.clientX, y: e.clientY },
+      '*'
+    );
+  }
+});
 
 if (Date.now() % 2 == 0) {
   switchToFireflyDemo()
@@ -64758,6 +64779,8 @@ All HCI create impression of mind reading - since human mind is expressed throug
 >
 > 'mind-reading' feature is extremely useful for making **interactive** reinforcement (one-armed bandits etc) learning models in 3d games. Human can use such unary input (e.g. `bird2.html`, or `sfr.html`) - to smoothly control agent's choices. Ideally should start with low-level choices (joints etc), rising to high-level prediction-based choices (agent accumulates and structures memory from interaction with user). Same principle works for predictive typing, directing AI video/audio rendering choices "on the go", making choicees fast in text-based game, redirecting AI reasoning "on the go" etc.
 >> Guidance for mapping probabilities - map straightforwardly (ergonomics take care of the rest). Most likely actions (given context) are easiest to pick, less likely require fine-tune (of muscular action towards mouse,gyro or body-pixel in webcam/lidar). E.g. with bird2.html or kb.html - most carette/bird positions taken will lead to most likely actions that given stochastic model outputs. Fine-tuning (balance and coordination) will allow player to do rare (but potentially highly beneficial) actions, up to modifying whole environment.
+>> 
+>> This background control does not interfere with explicit (mouse view, controllers etc) - both can be combined and blended.
 
 Ergonomics: gyro (and human motion derived from mic/webcam) use a primitive one-dimensional **summarizing action** input is emphasized (together with primitive outputs: sound, vibration), because "keyboards and mouses and screens" are hard to use naturally. They restrict natural human motion. Covert input (small unnoticable movements) is emphasized because many overt degrees of freedom are locked for human. We develop covert into overt - increase awareness.
 
