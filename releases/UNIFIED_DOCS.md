@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-13T09:50:37.266218*
+*Generated: 2026-07-13T10:00:53.612523*
 ---
 
 ## CRYPTO
@@ -26144,6 +26144,10 @@ function restoreState() {
 
 /* ---------- drag handling ---------- */
 dragStrip.addEventListener('mousedown', e => {
+  if (dragging) {
+    dragging = false;
+    return
+  }
   dragging = true;
   startX   = e.clientX;
   startY   = e.clientY;
@@ -26259,6 +26263,10 @@ function restoreStateVid() {
 
 /* ---------- drag handling ---------- */
 dragStripVid.addEventListener('mousedown', e => {
+  if (draggingVid) {
+    draggingVid = false;
+    return;
+  }
   draggingVid = true;
   startXVid   = e.clientX;
   startYVid   = e.clientY;
@@ -59715,6 +59723,10 @@ function restoreState() {
 
 /* ---------- drag handling ---------- */
 dragStrip.addEventListener('mousedown', e => {
+  if (dragging) {
+    dragging = false;
+    return
+  }
   dragging = true;
   startX   = e.clientX;
   startY   = e.clientY;
@@ -59830,6 +59842,10 @@ function restoreStateVid() {
 
 /* ---------- drag handling ---------- */
 dragStripVid.addEventListener('mousedown', e => {
+  if (draggingVid) {
+    draggingVid = false;
+    return;
+  }
   draggingVid = true;
   startXVid   = e.clientX;
   startYVid   = e.clientY;
