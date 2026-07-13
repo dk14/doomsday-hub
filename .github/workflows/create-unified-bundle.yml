@@ -187,11 +187,12 @@ jobs:
           cp doomsday-unified-bundle.zip releases/
           cp doomsday-unified-bundle-minified.zip releases/
           cp doomsday-unified-bundle-docs.zip releases/
+          cp UNIFIED_DOCS.md releases/
 
       - name: Commit and push zips to repository
         run: |
           git config user.email "dk14@github.com"
           git config user.name "dk14"
-          git add releases/doomsday-unified-bundle*.zip
+          git add releases/doomsday-unified-bundle*.zip releases/UNIFIED_DOCS.md
           git diff-index --quiet HEAD || git commit -m "Update unified bundles - $(date +%Y-%m-%d\ %H:%M:%S)"
           git push
