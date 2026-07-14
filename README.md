@@ -13,3 +13,5 @@ Download website: [https://dk14.github.io/doomsday-hub/](https://dk14.github.io/
 
 Bonus: "Fun Quantum Critic" at https://fqc.doomsdayexplorer.online/
 
+Article Pre-Print: https://crypto.doomsdayexplorer.online/article.pdf
+
