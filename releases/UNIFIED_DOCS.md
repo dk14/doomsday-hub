@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-14T14:57:40.751545*
+*Generated: 2026-07-14T17:45:58.757494*
 ---
 
 ## CRYPTO
@@ -1362,6 +1362,16 @@ USA (NIST) adopted and standardized commie definition of randomness (effectively
 
 
 
+
+### chats/btc-audit/docs/extra/energy-paddle.md
+
+https://youtu.be/1kUxiLbnFnA?si=igSp2jV3nkL_MF5o
+
+It was an exclusive ios game, that I ran out funds to support.
+
+It is predecessor of Firefly (`bird2.html`).
+
+Had good reviews ![energy](energy_paddle_ios.png)
 
 ### chats/btc-audit/docs/extra/how-to-save.md
 
