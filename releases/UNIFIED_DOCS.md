@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-13T11:42:38.800353*
+*Generated: 2026-07-14T06:53:29.649547*
 ---
 
 ## CRYPTO
@@ -23236,7 +23236,7 @@ Notes:
         </div>
         <p><a class="text-accent" href="mailto:bids@doomsdayexplorer.online">Send</a> a signed TXID + description – your feature is prioritized and you get a larger revenue slice. Bids are listed in <a style="color: white" href="https://github.com/dk14/crypto/blob/main/chats/btc-audit/CONTRIBUTORS.md"><code>CONTRIBUTORS.md</code></a>.</p>
       </div>
-    </div>
+    </div> 
 
     <!-- Node sponsor -->
     <div class="col-md-4">
@@ -64799,6 +64799,7 @@ All HCI create impression of mind reading - since human mind is expressed throug
 >
 > 'mind-reading' feature is extremely useful for making **interactive** reinforcement (one-armed bandits etc) learning models in 3d games. Human can use such unary input (e.g. `bird2.html`, or `sfr.html`) - to smoothly control agent's choices. Ideally should start with low-level choices (joints etc), rising to high-level prediction-based choices (agent accumulates and structures memory from interaction with user). Same principle works for predictive typing, directing AI video/audio rendering choices "on the go", making choicees fast in text-based game, redirecting AI reasoning "on the go" etc.
 >> Guidance for mapping probabilities - map straightforwardly (ergonomics take care of the rest). Most likely actions (given context) are easiest to pick, less likely require fine-tune (of muscular action towards mouse,gyro or body-pixel in webcam/lidar). E.g. with bird2.html or kb.html - most carette/bird positions taken will lead to most likely actions that given stochastic model outputs. Fine-tuning (balance and coordination) will allow player to do rare (but potentially highly beneficial) actions, up to modifying whole environment.
+>>> Minimalistic alternative to reinforcement-learning. Track sequence of tuples - (average pixel in a game at t, user response at t). Predict next response (ideally with context-aware algorrithms, e.g. Enigma from `eng.html`). Can be tracked symbolically as text. Reinforcement-learning as a service can be a booster, in the meantime, trivial sequence learning can give impressive results and immersion - player can perform complex actions intuitively akin to IRL.
 >> 
 >> This background control does not interfere with explicit (mouse view, controllers etc) - both can be combined and blended.
 
@@ -64812,6 +64813,18 @@ Ergonomics: gyro (and human motion derived from mic/webcam) use a primitive one-
 >>
 >> Energy input for both, utility of its use has to be modeled as well (game set-up provides wide scope of examples and scientific references, with some revisions of questionable academic literature)
 >>
+
+
+> Q: How 'mind reading' presented here relates to BCI? A: It critisizes invasive BCI, as well as non-invasive. Nervous system is electrical system, energy conservation binds signals in it to either: output to muscles right away, be memorized and output to muscles eventually or simply disperse as excess heat (be forgotten).
+>> Thus using gyro as mind-computer interface makes more sense simply, than EEG or invasive neuralinks. Even coma patient, has minimal access to muscles. Activity in brain reflexts sensory-motor activity. It is more appropriate to decode trivially observed (gyro or equivalents) covert motor activity than EEG, signal-to-noise ratio is better.
+>> 
+>> Relation to perception: memorized signals are not perceived by subject, dispersed are not perceived in focus. Only signals that found motor output are subjectively perceived. Perception is input-output, thus sampling subjective perception has nothing to do with brain ("CPU").
+>> 
+>>> More examples: signals on retina are filtered, most of what we "see" subjectively comes from eye-muscle activity - since it reflects what was amplified by nervous system supported by metabolism. The overall human physical perception is not in nervous or even muscular system - it cannot be by definition - those are internal organs. Overall human (or any other mechanical, actively animated system's) physical perception is on the physical contact boundary - "heat envelope". Perception is pressure, "heat exchange". All other examples (muscles) are subset.
+>>> 
+>>> Structure of perception - focused "bright" (in space and time) parts of heat ebevelope reflect util work (inluding muscular work, but also metabolic), unfocused - rejected heat due to inefficiency.  We aim at overall increase of brightness - because heat rejected due to inefficiency accumulates in environment and prevents heat exchange (e.g. it is hard to biologically reject heat in extreme environments created by time-spanned accumulated inefficient activities: hot and humid, dry desert, freezing winter; "heat predators" live in such environments, "very unfriendly spirits, outnumbering humans"), so overall brightness increase covers utility too. Optimal progression towards it requires respect to the structure of heat envelope.
+>>>
+>>> As metioned before (in Fun & Profit gane engine) measured motor performance (whether trhough gyro/camera - or indirectly as chat performance) relates to the state of heat envelope directly - short-term performance is controlled by breathing (main modulator of heat exchange), long-term by foraging. When Don Genaro (from Carlos Castaneda books) was climbing waterfall rocks to show Carlos the tentacles coming from the nivel area - Genaro was actually controlling his breathing (modulating heat envelope), tuning balance and coordination. It is risky for sensory-motor system to act at its peak performance due to smallest unnatural distraction (car moise, Carlos suggesting to be careful or being overly critical of "tentacles idea") being a major factor of risk to survival. It is where word can kill, but science nevertheless: proper "lab" setup required to verify claims: temporary absense of critical thought for input observation. Critical thought is good for analysis and planning - not for primary observation and measurement, since in such cases, it allows critical thinker to fit data to theory by filtering every signal that does not correspond the theory, fake the experiment.
 
 This is part of [doomsday ecosystem](https://doomsdayexplorer.online/).
 
