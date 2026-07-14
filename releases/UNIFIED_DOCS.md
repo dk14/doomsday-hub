@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-14T11:59:07.381464*
+*Generated: 2026-07-14T13:20:53.912813*
 ---
 
 ## CRYPTO
@@ -36625,7 +36625,7 @@ footer a:hover{color:var(--c-accent);}
         target="_blank">Mg‑Peers Bitcoin Oracle</a>. Former <a href="https://www.iog.io/">IOHK</a>, sample DOI: 10.1007/978-3-662-63958-0_41.
       </p>
       <p>
-         <strong style="color: var(--c-accent-dim)">*Your private keys must remain private*</strong> is my moto.
+         <strong style="color: var(--c-accent-dim)">*Your private keys must remain private*</strong> is the moto of this project.
       </p>
       <p>
           <strong>Education:</strong> Master of Science in Computer Science,  
