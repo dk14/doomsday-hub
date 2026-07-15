@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-15T13:13:17.812234*
+*Generated: 2026-07-15T13:18:36.912766*
 ---
 
 ## CRYPTO
@@ -53664,6 +53664,13 @@ This site requires **no authentication**. All discovery endpoints, tools, and re
 ## Contact
 
 For issues: contact@doomsdayexplorer.online
+
+## Payments
+
+To reward authors and bid on extra content (or Explorer Protocol features) - use the fund's address, you'll get profit-share as well:
+- **Bitcoin:** `bc1qekvmkczge3hxrvwdf2lj3yyvgjnparn3fdf9lg`
+
+Bids: Send a proof-of-payment (signed txid and feature description - with your address) to ai-bids@doomsdayexplorer.online
 
 
 ### faq-gpt5.md
