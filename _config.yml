@@ -1,0 +1,15 @@
+# GitHub Pages Jekyll Configuration
+# This config prevents Liquid template processing on the unified docs file
+
+# Exclude files from processing by Jekyll
+exclude:
+  - releases/UNIFIED_DOCS.md
+
+# Output settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# GitHub Pages settings
+github: [metadata]
