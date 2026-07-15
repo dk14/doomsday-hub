@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-15T08:11:56.443107*
+*Generated: 2026-07-15T08:14:01.931868*
 ---
 
 ## CRYPTO
@@ -59903,6 +59903,13 @@ function handleFullScreenChange() {
         document.webkitFullscreenElement ||
         document.mozFullScreenElement ||
         document.msFullscreenElement;
+
+    try {
+      video.muted = false
+      video.play()
+    } catch {
+      
+    }
 
     // When the video is the fullscreen element, set opacity to 1.
     // Otherwise restore the dimmed opacity you want for the normal view.
