@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-15T13:51:13.886260*
+*Generated: 2026-07-15T13:51:52.642613*
 ---
 
 ## CRYPTO
@@ -60003,7 +60003,7 @@ function handleFullScreenChange() {
       video.muted = false
       video.play()
     } catch {
-      
+
     }
 
     // When the video is the fullscreen element, set opacity to 1.
@@ -61885,6 +61885,75 @@ Machine readable ld+json Q & A repeated here in body.
   </div>
 </footer>
 </div>
+<script>
+  if (navigator.modelContext?.provideContext) {
+    navigator.modelContext.provideContext({
+      tools: [
+        {
+          name: "get_agent_skills",
+          description: "Discover available agent skills and capabilities for this site",
+          inputSchema: {
+            type: "object",
+            properties: {}
+          },
+          execute: async () => {
+            const res = await fetch('/.well-known/agent-skills/index.json');
+            return await res.json();
+          }
+        },
+        {
+          name: "get_mcp_server_card",
+          description: "Get the MCP Server Card for protocol capability negotiation",
+          inputSchema: {
+            type: "object",
+            properties: {}
+          },
+          execute: async () => {
+            const res = await fetch('/.well-known/mcp/server-card.json');
+            return await res.json();
+          }
+        },
+        {
+          name: "get_api_catalog",
+          description: "Get the API catalog of available endpoints and link relations",
+          inputSchema: {
+            type: "object",
+            properties: {}
+          },
+          execute: async () => {
+            const res = await fetch('/.well-known/api-catalog');
+            return await res.json();
+          }
+        },
+        {
+          name: "get_site_pages",
+          description: "Get the list of all pages and their summaries from the site index",
+          inputSchema: {
+            type: "object",
+            properties: {}
+          },
+          execute: async () => {
+            const res = await fetch('/index.json');
+            return await res.json();
+          }
+        },
+        {
+          name: "get_llms_txt",
+          description: "Get the LLMs.txt file with site content for AI agents",
+          inputSchema: {
+            type: "object",
+            properties: {}
+          },
+          execute: async () => {
+            const res = await fetch('/llms.txt');
+            return await res.text();
+          }
+        }
+      ]
+    });
+  }
+</script>
+
 </body>
 </html>
 
