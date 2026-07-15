@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-15T12:51:04.588527*
+*Generated: 2026-07-15T12:53:33.605546*
 ---
 
 ## CRYPTO
@@ -53646,6 +53646,25 @@ export { Butterchurn as default };
 ```
 
 ## DOOMSDAY-WEBSITE
+
+### auth.md
+
+# Agent Authentication
+
+This site requires **no authentication**. All discovery endpoints, tools, and resources are publicly accessible.
+
+## Access
+
+| Endpoint | Auth Required |
+|----------|---------------|
+| `/.well-known/agent-skills/index.json` | None |
+| `/.well-known/mcp/server-card.json` | None |
+| `/.well-known/agents/index` | None |
+
+## Contact
+
+For issues: contact@doomsdayexplorer.online
+
 
 ### faq-gpt5.md
 
