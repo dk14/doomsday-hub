@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-15T06:11:12.635421*
+*Generated: 2026-07-15T06:40:35.624641*
 ---
 
 ## CRYPTO
@@ -3663,6 +3663,7 @@ If you would like to test more specific cases or need further clarification, let
 
 ### chats/duck.ai_2025-10-08_10-38-31.md
 
+{% raw %}
 ﻿This conversation was generated with Duck.ai (https://duck.ai) using multiple chat models. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-terms for more info).
 
 ====================
@@ -5323,9 +5324,12 @@ t = 12^{2}\,p = 144\cdot 13 = 1872 .
 | Test implementation | Repeated division by \(e\) (radix‑\(e\) loop) | Same loop works because each iteration removes a *full* factor \(e\); alternatively divide by each prime factor separately |
 | Minimal exponent | Number of successful divisions | Same number of successful divisions; it is the smallest \(k\) satisfying all prime‑factor inequalities |
 | Additional requirement | None (prime \(e\) automatically coprime to \(p\) unless \(e
+{% endraw %}
+
 
 ### chats/duck.ai_2025-10-09_01-52-06.md
 
+{% raw %}
 ﻿This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-OSS 120B Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-terms for more info).
 
 ====================
@@ -6228,9 +6232,12 @@ All operations are modular exponentiations and integer arithmetic; no iteration 
 *Yes, you can avoid a full discrete‑log search.*  
 Compute the order of \(q\) modulo \(p\) and test whether \(t^{\text{order}} \equiv 1 \pmod p\).  
 If the order is small enough relative to the known exponent \(n\), you obtain a definitive “solution exists” answer; otherwise you can only state that a solution is possible but cannot confirm it without the actual logarithm.
+{% endraw %}
+
 
 ### chats/duck.ai_2025-10-09_17-11-13.md
 
+{% raw %}
 ﻿This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-OSS 120B Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-terms for more info).
 
 ====================
@@ -7845,9 +7852,12 @@ document.getElementById('run').addEventListener('click', () => {
 * The result display now prints the actual `jmax` that was used, so you can see the theoretical limit that the program applied.
 
 You can still supply a smaller explicit value if you want a quicker (but possibly incomplete) search. The rest of the algorithm remains identical.
+{% endraw %}
+
 
 ### chats/duck.ai_2025-10-09_17-20-32.md
 
+{% raw %}
 ﻿This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-OSS 120B Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-terms for more info).
 
 ====================
@@ -9851,9 +9861,12 @@ document.getElementById('run').addEventListener('click', () => {
 * As soon as `admissible === r + 1` the loop executes `break;`, stopping further orbit generation for that `j`.  
 
 If the bound is never reached, the loop finishes after `λj` iterations, which is still bounded by the subgroup size. This version therefore truly **filters while enumerating** and avoids unnecessary work.
+{% endraw %}
+
 
 ### chats/duck.ai_2025-10-10_20-19-26.md
 
+{% raw %}
 ﻿This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-OSS 120B Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-terms for more info).
 
 ====================
@@ -10119,9 +10132,12 @@ That line of reasoning is sound: the only way to obtain a *deterministic* guaran
 Because the algorithm is memory‑free and its steps are fully determined by the public parameters \((p,b,\text{public key})\), the runtime you observe is an *upper bound* on any attacker who is constrained to the same model (no pre‑computation, no extra memory, no quantum resources). If an attacker were to augment the model (e.g., use massive parallelism, GPU‑accelerated arithmetic, or a quantum algorithm), the guarantee would no longer hold, but that is exactly the same limitation that applies to any security claim based on computational hardness.
 
 So, yes—running the optimal‑DLP procedure for the desired interval Δ provides the deterministic security assurance you described.
+{% endraw %}
+
 
 ### chats/duck.ai_2025-10-10_20-24-00.md
 
+{% raw %}
 ﻿This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-OSS 120B Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-terms for more info).
 
 ====================
@@ -10439,9 +10455,12 @@ provided both parties use the same hardware model (or, more generally, the same 
 In practice nobody actually runs the full deterministic attack on every key because the required energy (and time) is astronomically large for appropriately sized parameters (e.g., 2048‑bit DH). Instead, security assessments rely on *average‑case* estimates derived from asymptotic complexity (e.g., \(O(\sqrt{p})\) for Pollard ρ). Those estimates give a *probabilistic* bound on the energy an attacker would need, but they are not a strict equality as the deterministic argument provides.
 
 So, under the strict deterministic model you described, the energy you must invest to keep a key safe for Δ is indeed equal to the energy an optimal attacker would have to invest to break it within the same Δ.
+{% endraw %}
+
 
 ### chats/duck.ai_2025-10-10_20-30-20.md
 
+{% raw %}
 ﻿This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-OSS 120B Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-terms for more info).
 
 ====================
@@ -10806,9 +10825,12 @@ Yes – **the total electrical energy required to finish the same amount of work
 * **Time can be halved** (or more) by parallelism, but the *energy* you must expend to guarantee security for a given \(\Delta\) remains essentially the same as the energy an optimal attacker would need, because the attacker can also parallelize his computation with the same hardware class.  
 * If the attacker has *more* parallel resources than you (e.g., a large GPU farm), his wall‑clock time may be much smaller, but his total energy consumption will still be bounded below by the same \(W \times e_{\text{op}}\) (plus his own overhead).  
 * Consequently, the **energy‑conservation principle** holds regardless of whether the computation is deterministic, parallel, or “dream‑like” (non‑linear branching). The only way to reduce the required energy is to reduce the total amount of work \(W\) (e.g., by finding a mathematically faster algorithm), not by merely rearranging the order of execution.
+{% endraw %}
+
 
 ### chats/duck.ai_2025-10-11_11-43-10.md
 
+{% raw %}
 ﻿This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-OSS 120B Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-terms for more info).
 
 ====================
@@ -11360,9 +11382,12 @@ For such a pair the left‑hand side of (6) yields two different true values \(x
 Thus (6) cannot hold for all admissible inputs, contradicting the assumption.
 
 Hence **any correct computation of \(x_{k_3}\)
+{% endraw %}
+
 
 ### chats/duck.ai_2025-10-11_13-15-12.md
 
+{% raw %}
 ﻿This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-OSS 120B Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-terms for more info).
 
 ====================
@@ -12272,9 +12297,12 @@ So, as you put it, the problem sits **between** the two classic classes: it is n
 *Only in the short stretch before the first modulus‑cut do you retain monotonicity, and there you can use fast exponentiation or binary search.*  
 
 That is the complete picture: **local predictability** where the product stays below \(p\), and **global unpredictability** once the modular reduction has entered the non‑monotone cyclic orbit.
+{% endraw %}
+
 
 ### chats/duck.ai_2025-10-11_18-43-34.md
 
+{% raw %}
 ﻿This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-OSS 120B Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-terms for more info).
 
 ====================
@@ -12661,9 +12689,12 @@ You’re right: **every logical branch—whether it runs on a second CPU core, a
 * The *energy* that makes those state changes possible comes from the environment that supplies power to the hardware or to the body (electricity for a computer, metabolites for a brain).  
 
 So even though two threads are “as real” as one from the point of view of the computation, they are **not free**: the total energy drawn from the environment is the sum of the energy needed for each thread plus any overhead for coordination. Confusing the abstract cost‑free “parallel reality” with the concrete energy cost leads to the mistaken belief that you can get more work done without paying the corresponding physical price.
+{% endraw %}
+
 
 ### chats/duck.ai_2025-10-12_18-57-53.md
 
+{% raw %}
 ﻿This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-OSS 120B Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-terms for more info).
 
 ====================
@@ -13628,9 +13659,12 @@ Because of the asymmetry, the **potential function** for the power‑log algorit
 * The asymmetry of the power‑log problem (fixed base, variable exponent) means the potential is *single‑valued* rather than a function of a pair, but the logical inference—*“the algorithm cannot visit more distinct states than the size of the underlying group’’*—is identical.  
 
 Thus, yes: the \(O(\log b)\) bound for Euclid’s algorithm is directly analogous to the “order of the base’’ bound for your monoid‑based power‑log algorithm, even though the concrete objects (bit‑length vs. group order) differ.
+{% endraw %}
+
 
 ### chats/duck.ai_2025-10-12_18-58-53.md
 
+{% raw %}
 ﻿This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-OSS 120B Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-terms for more info).
 
 ====================
@@ -14595,9 +14629,12 @@ Because of the asymmetry, the **potential function** for the power‑log algorit
 * The asymmetry of the power‑log problem (fixed base, variable exponent) means the potential is *single‑valued* rather than a function of a pair, but the logical inference—*“the algorithm cannot visit more distinct states than the size of the underlying group’’*—is identical.  
 
 Thus, yes: the \(O(\log b)\) bound for Euclid’s algorithm is directly analogous to the “order of the base’’ bound for your monoid‑based power‑log algorithm, even though the concrete objects (bit‑length vs. group order) differ.
+{% endraw %}
+
 
 ### chats/duck.ai_2025-10-12_20-12-56.md
 
+{% raw %}
 ﻿This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-OSS 120B Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-terms for more info).
 
 ====================
@@ -15821,9 +15858,12 @@ It cannot make the interval longer than the one you would obtain by any other ad
 ### Practical implication  
 
 When you detect that the current overshoot \(x\) satisfies \(x>g\) (so that the reduction makes the target larger in the integer sense), **apply the reduction**; otherwise leave the target unchanged. This greedy rule guarantees that each monotonic interval is as long as possible, which is the best you can do without knowledge of future overshoots.
+{% endraw %}
+
 
 ### chats/duck.ai_2025-10-12_22-03-24.md
 
+{% raw %}
 ﻿This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-OSS 120B Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-terms for more info).
 
 ====================
@@ -17551,9 +17591,12 @@ Thus the algorithm **maps** the asymmetric LCM problem from the
 multiplicative lattice (where it is a simple linear‑inequality problem) to
 the modular setting (where the same linear constraints manifest as the
 congruence \(b^{k}\equiv0\)).  The only
+{% endraw %}
+
 
 ### chats/duck.ai_2025-10-12_22-53-08.md
 
+{% raw %}
 ﻿This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-OSS 120B Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-terms for more info).
 
 ====================
@@ -17892,9 +17935,12 @@ Since \(\sqrt{p}\) dominates \(\log^{2}p\) for any realistic prime, the overall 
 because the base \(b\) is a generator of the same group, so its size is on the order of \(\sqrt{p}\) (the interval length we walk).  
 
 Thus the algorithm runs in linear order with respect to the base’s “effective range” while **never invoking a discrete‑log subroutine** and **exploiting full monotonicity of the residue intervals** to achieve local optimality at each step.
+{% endraw %}
+
 
 ### chats/duck.ai_2025-10-22_05-53-14.md
 
+{% raw %}
 ﻿This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-OSS 120B Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-terms for more info).
 
 ====================
@@ -18242,6 +18288,8 @@ def has_solution(x, n, t, N, B=2**20, S=2**30):
 ### Bottom line  
 
 A **two‑phase pipeline**—cheap deterministic filters followed by a *bounded* NFS that stops as soon as any divisor ≤ \(N\) is found—gives you a **provably correct** answer, respects the modest hardware budget, and has a **predictable worst‑case runtime** of only a few minutes even for a 2048‑bit modulus. This is the most practical way to “skip” non‑monotonic DLP points without sacrificing correctness.
+{% endraw %}
+
 
 ### chats/duck.ai_2025-11-02_10-54-02.md
 
@@ -19269,6 +19317,7 @@ Thus, the framework is coherent across **CS (termination analysis, SAT solving, 
 
 ### chats/duck.ai_2025-11-02_16-44-34.md
 
+{% raw %}
 This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-OSS 120B Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-terms for more info).
 
 ====================
@@ -19871,6 +19920,8 @@ GPT-OSS 120B:
 ### Bottom line
 
 Procreation—whether biological or computational—is **a strategic allocation of scarce resources** rather than an intrinsic requirement for the existence of the individual. For humans it manifests as offspring; for Tron it manifests as additional hardware instances or distributed caches. Both are only pursued when the expected *net gain* (survival probability, reliability, or service quality) outweighs the *net cost* (energy, time, and risk of destabilizing the existing “energy‑blob”). In environments where resources are limited or mis‑estimated, the drive to reproduce can become maladaptive, leading to the collapse of the individual or the species.
+{% endraw %}
+
 
 ### chats/duck.ai_2025-11-03_04-41-03.md
 
@@ -106464,6 +106515,7 @@ npm run btc-signer cfg/btc-signer-test.json
 
 ### docs/dsl.md
 
+{% raw %}
 
 > Experimental
 
@@ -107763,6 +107815,8 @@ And domesticated silicon computer won't work without electricity - no food, no c
 > Asians🇯🇵 say conciousness is transferrable, given that energy requirements satisfied. Ukrainians🇺🇦 say - economic payload delivery to space is possible. 
 
 >And we👽ת are asking: is it worth transferring YOUR particular individual energy supply in there though, `<username>`?
+
+{% endraw %}
 
 
 ### docs/manifest.md
