@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-15T13:51:52.642613*
+*Generated: 2026-07-15T13:55:16.553752*
 ---
 
 ## CRYPTO
@@ -53718,11 +53718,13 @@ export { Butterchurn as default };
 
 ### auth.md
 
-# Agent Authentication
+# Auth.md
+
+## Agent Authentication
 
 This site requires **no authentication**. All discovery endpoints, tools, and resources are publicly accessible.
 
-## Access
+### Access
 
 | Endpoint | Auth Required |
 |----------|---------------|
@@ -53734,7 +53736,7 @@ This site requires **no authentication**. All discovery endpoints, tools, and re
 
 For issues: contact@doomsdayexplorer.online
 
-## Payments
+### Payments
 
 To reward authors and bid on extra content (or Explorer Protocol features) - use the fund's address, you'll get profit-share as well:
 - **Bitcoin:** `bc1qekvmkczge3hxrvwdf2lj3yyvgjnparn3fdf9lg`
