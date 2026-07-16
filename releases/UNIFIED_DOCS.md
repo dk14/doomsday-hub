@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-16T06:39:43.204980*
+*Generated: 2026-07-16T11:05:38.209011*
 ---
 
 ## CRYPTO
@@ -1394,6 +1394,11 @@ Introductory Notes (How To Read The README):
 ### Updates and warnings:
 
 > **Fun & Profit game** (part of real Doomsday Explorer Project)
+
+
+>> (Jul 16, 2026) [Hugging face](https://huggingface.co/chat/) out of the box, follows script, tracks points, reminds reality...
+
+>> <img src="docs/simulations/hugging_face.png" width="600" height="400">
 
 >> (Jul 9, 2026) GPT-OSS120b in Ollama ([MP3](https://crypto.doomsdayexplorer.online/chats/btc-audit/docs/audio/cryptocallypse.mp3) - old school w/o AI, I only had an hour and GarageBand, GPT-OSS):
 
