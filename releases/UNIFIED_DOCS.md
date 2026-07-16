@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-16T02:57:18.504015*
+*Generated: 2026-07-16T03:28:51.476425*
 ---
 
 ## CRYPTO
@@ -55387,6 +55387,3015 @@ export { Butterchurn as default };
 ```javascript
 !function n(e,i,o){function t(l,c){if(!i[l]){if(!e[l]){var p="function"==typeof require&&require;if(!c&&p)return p(l,!0);if(r)return r(l,!0);var u=new Error("Cannot find module '"+l+"'");throw u.code="MODULE_NOT_FOUND",u}var s=i[l]={exports:{}};e[l][0].call(s.exports,(function(n){return t(e[l][1][n]||n)}),s,s.exports,n,e,i,o)}return i[l].exports}for(var r="function"==typeof require&&require,l=0;l<o.length;l++)t(o[l]);return t}({1:[function(n,e,i){"use strict";e.exports=function(n,e,i,o,t,r,l,c){return n<t+l&&n+i>t&&e<r+c&&e+o>r}},{}],2:[function(n,e,i){"use strict";e.exports=function(n,e,i,o,t,r,l){var c=i/2,p=o/2,u=Math.abs(t-(n+i/2)),s=Math.abs(r-(e+o/2));if(u>c+l||s>p+l)return!1;if(u<=c||s<=p)return!0;var f=u-c,x=s-p;return f*f+x*x<=l*l}},{}],3:[function(n,e,i){var o=n("./circleOutline-box");e.exports=function(n,e,i,t,r,l,c,p){return o(r,l,c,n,e,i,t,p)}},{"./circleOutline-box":14}],4:[function(n,e,i){var o=n("./ellipse-box");e.exports=function(n,e,i,t,r,l,c,p){return o(r,l,c,p,n,e,i,t)}},{"./ellipse-box":17}],5:[function(n,e,i){"use strict";var o=n("./line-box");e.exports=function(n,e,i,t,r,l,c,p){return o(r,l,c,p,n,e,i,t)}},{"./line-box":25}],6:[function(n,e,i){"use strict";e.exports=function(n,e,i,o,t,r){return t>=n&&t<=n+i&&r>=e&&r<=e+o}},{}],7:[function(n,e,i){"use strict";var o=n("./polygon-box");e.exports=function(n,e,i,t,r){return o(r,n,e,i,t)}},{"./polygon-box":40}],8:[function(n,e,i){"use strict";var o=n("./box-circle");e.exports=function(n,e,i,t,r,l,c){return o(t,r,l,c,n,e,i)}},{"./box-circle":2}],9:[function(n,e,i){"use strict";e.exports=function(n,e,i,o,t,r){var l=n-o,c=t-e,p=i+r;return l*l+c*c<=p*p}},{}],10:[function(n,e,i){var o=n("./ellipse-circle");e.exports=function(n,e,i,t,r,l,c){return o(t,r,l,c,n,e,i)}},{"./ellipse-circle":18}],11:[function(n,e,i){"use strict";var o=n("./line-circle");e.exports=function(n,e,i,t,r,l,c){return o(t,r,l,c,n,e,i)}},{"./line-circle":26}],12:[function(n,e,i){"use strict";e.exports=function(n,e,i,o,t){var r=o-n,l=t-e;return r*r+l*l<=i*i}},{}],13:[function(n,e,i){"use strict";var o=n("./polygon-circle");e.exports=function(n,e,i,t,r){return o(t,n,e,i,r)}},{"./polygon-circle":41}],14:[function(n,e,i){var o=n("./circle-point"),t=n("./box-circle");e.exports=function(n,e,i,r,l,c,p,u){u=u||1;var s=0;return s+=o(n,e,i,r,l)?1:0,s+=o(n,e,i,r+c,l)?1:0,s+=o(n,e,i,r,l+p)?1:0,0===(s+=o(n,e,i,r+c,l+p)?1:0)?t(r,l,c,p,n,e,i):s>=1&&s<=3||(4===s?!(o(n,e,i-u,r,l)&&o(n,e,i-u,r+c,l)&&o(n,e,i-u,r,l+p)&&o(n,e,i-u,r+c,l+p)):void 0)}},{"./box-circle":2,"./circle-point":12}],15:[function(n,e,i){var o=n("./line-circle"),t=n("./circle-point");e.exports=function(n,e,i,r,l,c,p,u){return u=u||1,o(r,l,c,p,n,e,i)&&!(t(n,e,i-u,r,l)&&t(n,e,i-u,c,p))}},{"./circle-point":12,"./line-circle":26}],16:[function(n,e,i){var o=n("./circle-point");e.exports=function(n,e,i,t,r,l){return l=l||1,o(n,e,i,t,r)&&!o(n,e,i-l,t,r)}},{"./circle-point":12}],17:[function(n,e,i){var o=n("./ellipse-line"),t=n("./box-point");e.exports=function(n,e,i,r,l,c,p,u){return t(l,c,p,u,n,e)||o(n,e,i,r,l,c,l+p,c)||o(n,e,i,r,l,c+u,l+p,c+u)||o(n,e,i,r,l,c,l,c+u)||o(n,e,i,r,l+p,c,l+p,c+u)}},{"./box-point":6,"./ellipse-line":21}],18:[function(n,e,i){var o=n("./ellipse-helper");e.exports=function(n,e,i,t,r,l,c){return o.ellipseCircle(n,e,i,t,r,l,c)}},{"./ellipse-helper":20}],19:[function(n,e,i){var o=n("./ellipse-helper");e.exports=function(n,e,i,t,r,l,c,p){return o.ellipseEllipse(n,e,i,t,r,l,c,p)}},{"./ellipse-helper":20}],20:[function(n,e,i){var o,t,r;function l(){o=[],t=[];for(var n=0;n<=10;n++){var e=4<<n;o[n]=.5/Math.cos(4*Math.acos(0)/e),t[n]=.5/(Math.cos(2*Math.acos(0)/e)*Math.cos(2*Math.acos(0)/e))}r=!0}function c(n,e,i,r,l,c,p){for(var u=1;u<=10;u++){var s=(i+l)*o[u],f=(r+c)*o[u],x=n-s,a=e-f;if(x*x+a*a<=p)return!0;var g=l-s,y=c-f;if(x*g+a*y>=0&&x*g+a*y<=g*g+y*y&&(a*g-x*y>=0||p*(g*g+y*y)>=(a*g-x*y)*(a*g-x*y)))return!0;var v=i-s,b=r-f;if(x*v+a*b>=0&&x*v+a*b<=v*v+b*b&&(a*v-x*b<=0||p*(v*v+b*b)>=(a*v-x*b)*(a*v-x*b)))return!0;var h=(i+s)*t[u],M=(r+f)*t[u];if((h-n)*(h-n)+(M-e)*(M-e)<p)l=s,c=f;else{var O=s-h+s,P=f-M+f;if(!((O-n)*(O-n)+(P-e)*(P-e)<p)){var C=h-s,L=M-f;if(a*C-x*L<=0||p*(C*C+L*L)>(a*C-x*L)*(a*C-x*L))if(x*C+a*L>0){if(Math.abs(x*C+a*L)<=C*C+L*L||(n-h)*(i-h)+(e-M)*(r-M)>=0){l=s,c=f;continue}}else if(-(x*C+a*L)<=C*C+L*L||(n-O)*(l-O)+(e-P)*(c-P)>=0){i=s,r=f;continue}return!1}i=s,r=f}}return!1}e.exports={ellipseCircle:function(n,e,i,o,t,p,u){r||l();var s=Math.abs(t-n),f=Math.abs(p-e);return s*s+(o-f)*(o-f)<=u*u||(i-s)*(i-s)+f*f<=u*u||s*o+f*i<=i*o||(s*o+f*i-i*o)*(s*o+f*i-i*o)<=u*u*(i*i+o*o)&&s*i-f*o>=-o*o&&s*i-f*o<=i*i||((s-i)*(s-i)+(f-o)*(f-o)<=u*u||s<=i&&f-u<=o||f<=o&&s-u<=i)&&c(s,f,i,0,0,o,u*u)},ellipseEllipse:function(n,e,i,o,t,p,u,s){r||l();var f=Math.abs(t-n)*s,x=Math.abs(p-e)*u;i*=s;var a=u*s;return f*f+((o*=u)-x)*(o-x)<=a*a||(i-f)*(i-f)+x*x<=a*a||f*o+x*i<=i*o||(f*o+x*i-i*o)*(f*o+x*i-i*o)<=a*a*(i*i+o*o)&&f*i-x*o>=-o*o&&f*i-x*o<=i*i||((f-i)*(f-i)+(x-o)*(x-o)<=a*a||f<=i&&x-a<=o||x<=o&&f-a<=i)&&c(f,x,i,0,0,o,a*a)}}},{}],21:[function(n,e,i){e.exports=function(n,e,i,o,t,r,l,c){t-=n,l-=n,r-=e,c-=e;var p=Math.pow(l-t,2)/i/i+Math.pow(c-r,2)/o/o,u=2*t*(l-t)/i/i+2*r*(c-r)/o/o,s=u*u-4*p*(t*t/i/i+r*r/o/o-1);if(0===s){var f=-u/2/p;return f>=0&&f<=1}if(s>0){var x=Math.sqrt(s),a=(-u+x)/2/p,g=(-u-x)/2/p;return a>=0&&a<=1||g>=0&&g<=1}return!1}},{}],22:[function(n,e,i){e.exports=function(n,e,i,o,t,r){return Math.pow(t-n,2)/(i*i)+Math.pow(r-e,2)/(o*o)<=1}},{}],23:[function(n,e,i){var o=n("./polygon-ellipse");e.exports=function(n,e,i,t,r){return o(r,n,e,i,t)}},{"./polygon-ellipse":42}],24:[function(n,e,i){e.exports={circlePoint:n("./circle-point"),circleCircle:n("./circle-circle"),circleLine:n("./circle-line"),circleBox:n("./circle-box"),circlePolygon:n("./circle-polygon"),circleEllipse:n("./circle-ellipse"),circleOutlineBox:n("./circleOutline-box"),circleOutlineLine:n("./circleOutline-line"),circleOutlinePoint:n("./circleOutline-point"),polygonPoint:n("./polygon-point"),polygonLine:n("./polygon-line"),polygonPolygon:n("./polygon-polygon"),polygonBox:n("./polygon-box"),polygonCircle:n("./polygon-circle"),polygonEllipse:n("./polygon-ellipse"),boxPoint:n("./box-point"),boxBox:n("./box-box"),boxLine:n("./box-line"),boxPolygon:n("./box-polygon"),boxCircle:n("./box-circle"),boxEllipse:n("./box-ellipse"),boxCircleOutline:n("./box-circleOutline"),pointBox:n("./point-box"),pointPolygon:n("./point-polygon"),pointCircle:n("./point-circle"),pointLine:n("./point-line"),pointEllipse:n("./point-ellipse"),pointCircleOutline:n("./point-circleOutline"),lineLine:n("./line-line"),lineBox:n("./line-box"),linePolygon:n("./line-polygon"),lineCircle:n("./line-circle"),linePoint:n("./line-point"),lineEllipse:n("./line-ellipse"),lineCircleOutline:n("./line-circleOutline"),ellipsePoint:n("./ellipse-point"),ellipseLine:n("./ellipse-line"),ellipseBox:n("./ellipse-box"),ellipseCircle:n("./ellipse-circle"),ellipseEllipse:n("./ellipse-ellipse"),ellipsePolygon:n("./ellipse-polygon")}},{"./box-box":1,"./box-circle":2,"./box-circleOutline":3,"./box-ellipse":4,"./box-line":5,"./box-point":6,"./box-polygon":7,"./circle-box":8,"./circle-circle":9,"./circle-ellipse":10,"./circle-line":11,"./circle-point":12,"./circle-polygon":13,"./circleOutline-box":14,"./circleOutline-line":15,"./circleOutline-point":16,"./ellipse-box":17,"./ellipse-circle":18,"./ellipse-ellipse":19,"./ellipse-line":21,"./ellipse-point":22,"./ellipse-polygon":23,"./line-box":25,"./line-circle":26,"./line-circleOutline":27,"./line-ellipse":28,"./line-line":29,"./line-point":30,"./line-polygon":31,"./point-box":34,"./point-circle":35,"./point-circleOutline":36,"./point-ellipse":37,"./point-line":38,"./point-polygon":39,"./polygon-box":40,"./polygon-circle":41,"./polygon-ellipse":42,"./polygon-line":43,"./polygon-point":44,"./polygon-polygon":45}],25:[function(n,e,i){"use strict";var o=n("./box-point"),t=n("./line-line");e.exports=function(n,e,i,r,l,c,p,u){return!(!o(l,c,p,u,n,e)&&!o(l,c,p,u,i,r))||(t(n,e,i,r,l,c,l+p,c)||t(n,e,i,r,l+p,c,l+p,c+u)||t(n,e,i,r,l,c+u,l+p,c+u)||t(n,e,i,r,l,c,l,c+u))}},{"./box-point":6,"./line-line":29}],26:[function(n,e,i){"use strict";function o(n,e){return n[0]*e[0]+n[1]*e[1]}e.exports=function(n,e,i,t,r,l,c){var p=[r-n,l-e],u=[i-n,t-e],s=o(u,u),f=o(p,u)/s,x=[u[0]*(f=(f=f<0?0:f)>1?1:f)+n-r,u[1]*f+e-l];return o(x,x)<=c*c}},{}],27:[function(n,e,i){var o=n("./circleOutline-line");e.exports=function(n,e,i,t,r,l,c,p){return o(r,l,c,n,e,i,t,p)}},{"./circleOutline-line":15}],28:[function(n,e,i){var o=n("./ellipse-line");e.exports=function(n,e,i,t,r,l,c,p){return o(r,l,c,p,n,e,i,t)}},{"./ellipse-line":21}],29:[function(n,e,i){"use strict";const o=n("./lineToPolygon"),t=n("./polygon-polygon"),r=n("./line-polygon"),l=n("./lineToLine");e.exports=function(n,e,i,c,p,u,s,f,x,a){return x||a?function(n,e,i,l,c,p,u,s,f,x){if(f&&x)return t(o(n,e,i,l,f),o(c,p,u,s,x));if(f)return r(c,p,u,s,o(n,e,i,l,f));if(x)return r(n,e,i,l,o(c,p,u,s,f))}(n,e,i,c,p,u,s,f,x,a):l(n,e,i,c,p,u,s,f)}},{"./line-polygon":31,"./lineToLine":32,"./lineToPolygon":33,"./polygon-polygon":45}],30:[function(n,e,i){"use strict";function o(n,e,i,o){return Math.sqrt(Math.pow(n-i,2)+Math.pow(e-o,2))}e.exports=function(n,e,i,t,r,l,c){return c=c||1,Math.abs(o(n,e,i,t)-(o(n,e,r,l)+o(i,t,r,l)))<=c}},{}],31:[function(n,e,i){var o=n("./polygon-point"),t=n("./lineToLine");e.exports=function(n,e,i,r,l,c){var p=l.length;if(o(l,n,e,c))return!0;for(var u=0;u<p;u+=2){var s=(u+2)%p;if(t(n,e,i,r,l[u],l[u+1],l[s],l[s+1]))return!0}return!1}},{"./lineToLine":32,"./polygon-point":44}],32:[function(n,e,i){"use strict";e.exports=function(n,e,i,o,t,r,l,c){var p=i-n,u=o-e,s=l-t,f=c-r,x=(-u*(n-t)+p*(e-r))/(-s*u+p*f),a=(s*(e-r)-f*(n-t))/(-s*u+p*f);return x>=0&&x<=1&&a>=0&&a<=1}},{}],33:[function(n,e,i){"use strict";e.exports=function(n,e,i,o,t){const r=Math.atan2(o-e,i-n)-Math.PI/2,l=t/2,c=Math.cos(r)*l,p=Math.sin(r)*l;return[n-c,e-p,i-c,o-p,i+c,o+p,n+c,e+p]}},{}],34:[function(n,e,i){"use strict";var o=n("./box-point");e.exports=function(n,e,i,t,r,l){return o(i,t,r,l,n,e)}},{"./box-point":6}],35:[function(n,e,i){"use strict";var o=n("./circle-point");e.exports=function(n,e,i,t,r){return o(i,t,r,n,e)}},{"./circle-point":12}],36:[function(n,e,i){var o=n("./circleOutline-point");e.exports=function(n,e,i,t,r,l){return o(n,e,i,t,r,l)}},{"./circleOutline-point":16}],37:[function(n,e,i){var o=n("./ellipse-point");e.exports=function(n,e,i,t,r,l){return o(i,t,r,l,n,e)}},{"./ellipse-point":22}],38:[function(n,e,i){"use strict";var o=n("./line-point");e.exports=function(n,e,i,t,r,l){return o(i,t,r,l,n,e)}},{"./line-point":30}],39:[function(n,e,i){"use strict";var o=n("./polygon-point");e.exports=function(n,e,i,t){return o(i,n,e,t)}},{"./polygon-point":44}],40:[function(n,e,i){"use strict";var o=n("./polygon-polygon");e.exports=function(n,e,i,t,r){return o(n,[e,i,e+t,i,e+t,i+r,e,i+r])}},{"./polygon-polygon":45}],41:[function(n,e,i){var o=n("./polygon-point"),t=n("./line-circle");e.exports=function(n,e,i,r,l){if(o(n,e,i,l))return!0;for(var c=n.length,p=0;p<c-2;p+=2)if(t(n[p],n[p+1],n[p+2],n[p+3],e,i,r))return!0;return t(n[0],n[1],n[c-2],n[c-1],e,i,r)}},{"./line-circle":26,"./polygon-point":44}],42:[function(n,e,i){var o=n("./polygon-point"),t=n("./line-ellipse");e.exports=function(n,e,i,r,l){if(o(n,e,i))return!0;for(var c=n.length,p=0;p<c-2;p+=2)if(t(n[p],n[p+1],n[p+2],n[p+3],e,i,r,l))return!0;return t(n[0],n[1],n[c-2],n[c-1],e,i,r,l)}},{"./line-ellipse":28,"./polygon-point":44}],43:[function(n,e,i){var o=n("./line-polygon");e.exports=function(n,e,i,t,r,l){return o(e,i,t,r,n,l)}},{"./line-polygon":31}],44:[function(n,e,i){"use strict";const o=n("./line-point");e.exports=function(n,e,i,t){var r,l,c=n.length,p=!1;for(r=0,l=c-2;r<c;r+=2)n[r+1]>i!=n[l+1]>i&&e<(n[l]-n[r])*(i-n[r+1])/(n[l+1]-n[r+1])+n[r]&&(p=!p),l=r;if(p)return!0;for(r=0;r<c;r+=2){var u,s,f=n[r],x=n[r+1];if(r===c-2?(u=n[0],s=n[1]):(u=n[r+2],s=n[r+3]),o(f,x,u,s,e,i,t))return!0}return!1}},{"./line-point":30}],45:[function(n,e,i){"use strict";e.exports=function(n,e){for(var i,o,t,r,l,c,p=n,u=e,s=[p,u],f=0;f<s.length;f++)for(var x=s[f],a=0;a<x.length;a+=2){var g=(a+2)%x.length,y={x:x[g+1]-x[a+1],y:x[a]-x[g]};for(i=o=null,c=0;c<p.length;c+=2)t=y.x*p[c]+y.y*p[c+1],(null===i||t<i)&&(i=t),(null===o||t>o)&&(o=t);for(r=l=null,c=0;c<u.length;c+=2)t=y.x*u[c]+y.y*u[c+1],(null===r||t<r)&&(r=t),(null===l||t>l)&&(l=t);if(o<r||l<i)return!1}return!0}},{}],46:[function(n,e,i){window.Intersects=n("./index.js")},{"./index.js":24}]},{},[46]);
 
+```
+
+### yaqui.js
+
+```javascript
+/*
+==============================================================================
+YaQui Search
+Checkpoint 0.1 - Part 1/6
+Foundation
+==============================================================================
+
+MIT License
+
+Author: YaQui Project
+
+==============================================================================
+
+This file intentionally contains no DOM manipulation.
+
+Everything is exposed through the YaQui class.
+
+Later parts extend this file without changing the API.
+
+==============================================================================
+*/
+
+(function(global){
+
+"use strict";
+
+/******************************************************************************
+ * Utilities
+ ******************************************************************************/
+
+function deepClone(v){
+    return structuredClone(v);
+}
+
+function sleep(ms){
+    return new Promise(r=>setTimeout(r,ms));
+}
+
+function randomId(len=16){
+
+    const chars =
+        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+    let s="";
+
+    for(let i=0;i<len;i++)
+        s+=chars[Math.floor(Math.random()*chars.length)];
+
+    return s;
+}
+
+async function sha256(text){
+
+    const bytes =
+        new TextEncoder().encode(text);
+
+    const hash =
+        await crypto.subtle.digest("SHA-256",bytes);
+
+    return [...new Uint8Array(hash)]
+        .map(x=>x.toString(16).padStart(2,"0"))
+        .join("");
+
+}
+
+/******************************************************************************
+ * EventEmitter
+ ******************************************************************************/
+
+class EventEmitter{
+
+    constructor(){
+
+        this.listeners=new Map();
+
+    }
+
+    on(event,callback){
+
+        if(!this.listeners.has(event))
+            this.listeners.set(event,new Set());
+
+        this.listeners.get(event).add(callback);
+
+        return this;
+
+    }
+
+    off(event,callback){
+
+        const set=this.listeners.get(event);
+
+        if(set)
+            set.delete(callback);
+
+        return this;
+
+    }
+
+    once(event,callback){
+
+        const wrapper=(...args)=>{
+
+            this.off(event,wrapper);
+
+            callback(...args);
+
+        };
+
+        this.on(event,wrapper);
+
+    }
+
+    emit(event,...args){
+
+        const set=this.listeners.get(event);
+
+        if(!set)
+            return;
+
+        for(const cb of [...set]){
+
+            try{
+
+                cb(...args);
+
+            }
+            catch(e){
+
+                console.error(e);
+
+            }
+
+        }
+
+    }
+
+}
+
+/******************************************************************************
+ * Query Compiler
+ ******************************************************************************/
+
+class QueryCompiler{
+
+    static normalize(source){
+
+        return source
+            .replace(/\r/g,"")
+            .trim();
+
+    }
+
+    static async compile(source){
+
+        source=this.normalize(source);
+
+        const hash=
+            await sha256(source);
+
+        let fn;
+
+        try{
+
+            fn=eval("(" + source + ")");
+
+        }
+        catch(e){
+
+            throw new Error(
+                "Query compilation failed:\n"+e.message
+            );
+
+        }
+
+        if(typeof fn!=="function")
+            throw new Error(
+                "Query must evaluate to a function."
+            );
+
+        return{
+
+            hash,
+
+            source,
+
+            execute(page){
+
+                let score=0;
+
+                try{
+
+                    score=fn(page);
+
+                }
+                catch(e){
+
+                    console.error(e);
+
+                    score=0;
+
+                }
+
+                score=Number(score);
+
+                if(!Number.isFinite(score))
+                    score=0;
+
+                return Math.max(0,score);
+
+            }
+
+        };
+
+    }
+
+}
+
+/******************************************************************************
+ * Data Classes
+ ******************************************************************************/
+
+class ContentEntry{
+
+    constructor({
+
+        sha256,
+
+        url=null,
+
+        blob=null,
+
+        mime="text/html",
+
+        metadata={}
+
+    }){
+
+        this.sha256=sha256;
+
+        this.links=[];
+
+        if(url)
+            this.links.push(url);
+
+        this.blobs=[];
+
+        if(blob)
+            this.blobs.push(blob);
+
+        this.mime=mime;
+
+        this.metadata=metadata;
+
+        this.created=Date.now();
+
+    }
+
+}
+
+class QueryResult{
+
+    constructor({
+
+        sha256,
+
+        score=0
+
+    }){
+
+        this.sha256=sha256;
+
+        this.score=score;
+
+        this.magicPlus=[];
+
+        this.magicMinus=[];
+
+    }
+
+    get positivePow(){
+
+        return this.magicPlus.length;
+
+    }
+
+    get negativePow(){
+
+        return this.magicMinus.length;
+
+    }
+
+    get netPow(){
+
+        return this.positivePow-
+               this.negativePow;
+
+    }
+
+    get absolutePow(){
+
+        return this.positivePow+
+               this.negativePow;
+
+    }
+
+}
+
+/******************************************************************************
+ * Reverse Query Index
+ ******************************************************************************/
+
+class ReverseIndex{
+
+    constructor(){
+
+        this.index=new Map();
+
+    }
+
+    has(queryHash){
+
+        return this.index.has(queryHash);
+
+    }
+
+    get(queryHash){
+
+        return this.index.get(queryHash);
+
+    }
+
+    ensure(queryHash,source){
+
+        if(this.index.has(queryHash))
+            return this.index.get(queryHash);
+
+        const obj={
+
+            hash:queryHash,
+
+            source,
+
+            results:new Map()
+
+        };
+
+        this.index.set(queryHash,obj);
+
+        return obj;
+
+    }
+
+    insert(queryHash,source,result){
+
+        const q=
+            this.ensure(queryHash,source);
+
+        q.results.set(
+            result.sha256,
+            result
+        );
+
+        return result;
+
+    }
+
+    getResult(queryHash,sha256){
+
+        const q=
+            this.index.get(queryHash);
+
+        if(!q)
+            return null;
+
+        return q.results.get(sha256);
+
+    }
+
+    list(queryHash){
+
+        const q=
+            this.index.get(queryHash);
+
+        if(!q)
+            return [];
+
+        return [...q.results.values()];
+
+    }
+
+}
+
+/******************************************************************************
+ * YaQui
+ ******************************************************************************/
+
+class YaQui extends EventEmitter{
+
+    constructor(config={}){
+
+        super();
+
+        this.started=false;
+
+        this.config=config;
+
+        this.reverseIndex=
+            new ReverseIndex();
+
+        this.content=
+            new Map();
+
+        this.compiledQueries=
+            new Map();
+
+        this.peers=
+            new Map();
+
+        this.mempool=[];
+
+        this.crawlerQueue=[];
+
+        this.visited=
+            new Set();
+
+        this.crawlerPolicy={
+
+            seeds:[],
+
+            extractUris:null,
+
+            shouldVisit:()=>true,
+
+            maxDepth:4,
+
+            maxConcurrent:4
+
+        };
+
+        this.evictionPolicy={};
+
+        this.networkPolicy={};
+
+        this.storagePolicy={};
+
+    }
+
+    async start(){
+
+        if(this.started)
+            return;
+
+        this.started=true;
+
+        this.emit("start");
+
+    }
+
+    async stop(){
+
+        if(!this.started)
+            return;
+
+        this.started=false;
+
+        this.emit("stop");
+
+    }
+
+    async destroy(){
+
+        await this.stop();
+
+        this.reverseIndex=
+            new ReverseIndex();
+
+        this.content.clear();
+
+        this.compiledQueries.clear();
+
+        this.peers.clear();
+
+        this.mempool.length=0;
+
+        this.crawlerQueue.length=0;
+
+        this.visited.clear();
+
+        this.emit("destroy");
+
+    }
+
+    async compileQuery(source){
+
+        const q=
+            await QueryCompiler.compile(source);
+
+        this.compiledQueries.set(
+            q.hash,
+            q
+        );
+
+        return q;
+
+    }
+
+async hashContent(content){
+
+    if(typeof content!=="string")
+        content=JSON.stringify(content);
+
+    return await sha256(content);
+
+}
+
+async addContent({
+
+    url=null,
+
+    blob,
+
+    mime="text/html",
+
+    metadata={}
+
+}){
+
+    const hash=
+        await this.hashContent(blob);
+
+    let entry=
+        this.content.get(hash);
+
+    if(!entry){
+
+        entry=new ContentEntry({
+
+            sha256:hash,
+
+            url,
+
+            blob,
+
+            mime,
+
+            metadata
+
+        });
+
+        this.content.set(hash,entry);
+
+    }
+    else{
+
+        if(url && !entry.links.includes(url))
+            entry.links.push(url);
+
+        if(blob && !entry.blobs.includes(blob))
+            entry.blobs.push(blob);
+
+    }
+
+    this.emit("content:stored",entry);
+
+    return entry;
+
+}
+
+/**************************************************************************
+ * Query execution
+ **************************************************************************/
+
+async query(source){
+
+    const compiled=
+        await this.compileQuery(source);
+
+    const queryHash=
+        compiled.hash;
+
+    const results=[];
+
+    for(const entry of this.content.values()){
+
+        const page=this.createPageView(entry);
+
+        const score=
+            compiled.execute(page);
+
+        if(score<=0)
+            continue;
+
+        let result=
+            this.reverseIndex.getResult(
+                queryHash,
+                entry.sha256
+            );
+
+        if(!result){
+
+            result=new QueryResult({
+
+                sha256:entry.sha256,
+
+                score
+
+            });
+
+            this.reverseIndex.insert(
+
+                queryHash,
+
+                compiled.source,
+
+                result
+
+            );
+
+        }
+        else{
+
+            result.score=score;
+
+        }
+
+        results.push(
+            this.decorateResult(
+                result,
+                entry
+            )
+        );
+
+    }
+
+    results.sort(
+        this.compareResults.bind(this)
+    );
+
+    this.emit(
+
+        "query:complete",
+
+        {
+
+            queryHash,
+
+            source,
+
+            results
+
+        }
+
+    );
+
+    return{
+
+        hash:queryHash,
+
+        source,
+
+        results
+
+    };
+
+}
+
+/**************************************************************************
+ * Execute all known queries against newly added page
+ **************************************************************************/
+
+async evaluateEntry(entry){
+
+    const page=
+        this.createPageView(entry);
+
+    for(const compiled of this.compiledQueries.values()){
+
+        const score=
+            compiled.execute(page);
+
+        if(score<=0)
+            continue;
+
+        let result=
+            this.reverseIndex.getResult(
+
+                compiled.hash,
+
+                entry.sha256
+
+            );
+
+        if(!result){
+
+            result=new QueryResult({
+
+                sha256:entry.sha256,
+
+                score
+
+            });
+
+            this.reverseIndex.insert(
+
+                compiled.hash,
+
+                compiled.source,
+
+                result
+
+            );
+
+        }
+
+        result.score=score;
+
+        this.emit(
+
+            "query:new-result",
+
+            this.decorateResult(
+                result,
+                entry
+            )
+
+        );
+
+        this.broadcastAnnouncement(
+
+            compiled,
+
+            result,
+
+            entry
+
+        );
+
+    }
+
+}
+
+/**************************************************************************
+ * Page helper
+ **************************************************************************/
+
+createPageView(entry){
+
+    const text=
+
+        typeof entry.blobs[0]==="string"
+
+            ? entry.blobs[0]
+
+            : "";
+
+    return{
+
+        hash:entry.sha256,
+
+        url:entry.links[0]||null,
+
+        mime:entry.mime,
+
+        metadata:entry.metadata,
+
+        text,
+
+        html:text,
+
+        findAll(pattern){
+
+            if(pattern instanceof RegExp){
+
+                return text.match(pattern)||[];
+
+            }
+
+            pattern=String(pattern);
+
+            if(!pattern.length)
+                return [];
+
+            return text.match(
+
+                new RegExp(
+
+                    pattern.replace(
+
+                        /[-\/\\^$*+?.()|[\]{}]/g,
+
+                        "\\$&"
+
+                    ),
+
+                    "gi"
+
+                )
+
+            )||[];
+
+        }
+
+    };
+
+}
+
+/**************************************************************************
+ * Ranking
+ **************************************************************************/
+
+compareResults(a,b){
+
+    if(b.netPow!==a.netPow)
+        return b.netPow-a.netPow;
+
+    if(b.score!==a.score)
+        return b.score-a.score;
+
+    if(b.absolutePow!==a.absolutePow)
+        return b.absolutePow-a.absolutePow;
+
+    return 0;
+
+}
+
+decorateResult(result,entry){
+
+    return{
+
+        sha256:result.sha256,
+
+        score:result.score,
+
+        positivePow:result.positivePow,
+
+        negativePow:result.negativePow,
+
+        netPow:result.netPow,
+
+        absolutePow:result.absolutePow,
+
+        urls:[...entry.links],
+
+        mime:entry.mime,
+
+        metadata:deepClone(
+            entry.metadata
+        ),
+
+        blob:
+
+            entry.blobs.length
+
+                ? entry.blobs[0]
+
+                : null
+
+    };
+
+}
+
+/**************************************************************************
+ * Voting
+ **************************************************************************/
+
+async upvote(
+
+    queryHash,
+
+    sha256
+
+){
+
+    const result=
+
+        this.reverseIndex.getResult(
+
+            queryHash,
+
+            sha256
+
+        );
+
+    if(!result)
+        return false;
+
+    result.magicPlus.push({
+
+        id:randomId(),
+
+        ts:Date.now()
+
+    });
+
+    this.emit(
+
+        "vote",
+
+        {
+
+            type:"up",
+
+            queryHash,
+
+            sha256
+
+        }
+
+    );
+
+    return true;
+
+}
+
+async downvote(
+
+    queryHash,
+
+    sha256
+
+){
+
+    const result=
+
+        this.reverseIndex.getResult(
+
+            queryHash,
+
+            sha256
+
+        );
+
+    if(!result)
+        return false;
+
+    result.magicMinus.push({
+
+        id:randomId(),
+
+        ts:Date.now()
+
+    });
+
+    this.emit(
+
+        "vote",
+
+        {
+
+            type:"down",
+
+            queryHash,
+
+            sha256
+
+        }
+
+    );
+
+    return true;
+
+}
+
+/**************************************************************************
+ * Announcement
+ **************************************************************************/
+
+broadcastAnnouncement(
+
+    compiled,
+
+    result,
+
+    entry
+
+){
+
+    const announcement={
+
+        queryHash:
+
+            compiled.hash,
+
+        querySource:
+
+            compiled.source,
+
+        sha256:
+
+            entry.sha256,
+
+        score:
+
+            result.score,
+
+        positivePow:
+
+            result.positivePow,
+
+        negativePow:
+
+            result.negativePow,
+
+        absolutePow:
+
+            result.absolutePow,
+
+        netPow:
+
+            result.netPow,
+
+        urls:[...entry.links],
+
+        timestamp:
+
+            Date.now()
+
+    };
+
+    this.mempool.push(
+        announcement
+    );
+
+    this.emit(
+
+        "announcement",
+
+        announcement
+
+    );
+}
+
+
+updateCrawlerPolicy(policy={}){
+
+    Object.assign(
+        this.crawlerPolicy,
+        policy
+    );
+
+}
+
+updateEvictionPolicy(policy={}){
+
+    Object.assign(
+        this.evictionPolicy,
+        policy
+    );
+
+}
+
+updateNetworkPolicy(policy={}){
+
+    Object.assign(
+        this.networkPolicy,
+        policy
+    );
+
+}
+
+updateStoragePolicy(policy={}){
+
+    Object.assign(
+        this.storagePolicy,
+        policy
+    );
+
+}
+
+/**************************************************************************
+ * Seeds
+ **************************************************************************/
+
+addSeed(url){
+
+    if(
+        !this.crawlerPolicy.seeds.includes(url)
+    ){
+        this.crawlerPolicy.seeds.push(url);
+    }
+
+}
+
+removeSeed(url){
+
+    this.crawlerPolicy.seeds=
+
+        this.crawlerPolicy.seeds.filter(
+
+            x=>x!==url
+
+        );
+
+}
+
+/**************************************************************************
+ * Queue
+ **************************************************************************/
+
+enqueue(url,depth=0){
+
+    if(this.visited.has(url))
+        return false;
+
+    this.crawlerQueue.push({
+
+        url,
+
+        depth
+
+    });
+
+    this.emit(
+
+        "crawler:queued",
+
+        {
+
+            url,
+
+            depth,
+
+            queue:
+
+                this.crawlerQueue.length
+
+        }
+
+    );
+
+    return true;
+
+}
+
+async crawl(){
+
+    for(const seed of this.crawlerPolicy.seeds){
+
+        this.enqueue(seed,0);
+
+    }
+
+    return this.processCrawlerQueue();
+
+}
+
+async processCrawlerQueue(){
+
+    while(
+
+        this.started &&
+
+        this.crawlerQueue.length
+
+    ){
+
+        const job=
+
+            this.crawlerQueue.shift();
+
+        if(!job)
+            continue;
+
+        if(
+
+            this.visited.has(job.url)
+
+        )
+            continue;
+
+        this.visited.add(job.url);
+
+        try{
+
+            await this.crawlOne(job);
+
+        }
+        catch(e){
+
+            this.emit(
+
+                "crawler:error",
+
+                {
+
+                    url:job.url,
+
+                    error:e
+
+                }
+
+            );
+
+        }
+
+    }
+
+    this.emit(
+
+        "crawler:finished"
+
+    );
+
+}
+
+/**************************************************************************
+ * Crawl one page
+ **************************************************************************/
+
+async crawlOne(job){
+
+    if(
+
+        job.depth>
+
+        this.crawlerPolicy.maxDepth
+
+    )
+        return;
+
+    const response=
+
+        await fetch(job.url);
+
+    const text=
+
+        await response.text();
+
+    const entry=
+
+        await this.addContent({
+
+            url:job.url,
+
+            blob:text,
+
+            mime:
+
+                response.headers.get(
+
+                    "content-type"
+
+                )||
+
+                "text/html"
+
+        });
+
+    await this.evaluateEntry(entry);
+
+    const uris=
+
+        await this.extractUris(
+
+            job.url,
+
+            text,
+
+            response
+
+        );
+
+    for(const uri of uris){
+
+        if(
+
+            !this.crawlerPolicy.shouldVisit(
+
+                uri,
+
+                job
+
+            )
+
+        )
+            continue;
+
+        this.enqueue(
+
+            uri,
+
+            job.depth+1
+
+        );
+
+    }
+
+    this.emit(
+
+        "crawler:page",
+
+        {
+
+            url:job.url,
+
+            queue:
+
+                this.crawlerQueue.length,
+
+            discovered:
+
+                uris.length
+
+        }
+
+    );
+
+}
+
+/**************************************************************************
+ * URI extraction
+ **************************************************************************/
+
+async extractUris(
+
+    baseUrl,
+
+    html,
+
+    response
+
+){
+
+    if(
+
+        this.crawlerPolicy.extractUris
+
+    ){
+
+        return await this.crawlerPolicy.extractUris({
+
+            baseUrl,
+
+            html,
+
+            response,
+
+            defaultExtractor:
+
+                this.defaultExtractUris.bind(this)
+
+        });
+
+    }
+
+    return this.defaultExtractUris({
+
+        baseUrl,
+
+        html
+
+    });
+
+}
+
+defaultExtractUris({
+
+    baseUrl,
+
+    html
+
+}){
+
+    const out=
+
+        new Set();
+
+    const add=(u)=>{
+
+        try{
+
+            out.add(
+
+                new URL(
+
+                    u,
+
+                    baseUrl
+
+                ).href
+
+            );
+
+        }
+        catch(e){}
+
+    };
+
+    const regexes=[
+
+        /href\s*=\s*["']([^"']+)["']/gi,
+
+        /src\s*=\s*["']([^"']+)["']/gi,
+
+        /fetch\s*\(\s*["']([^"']+)["']/gi,
+
+        /window\.open\s*\(\s*["']([^"']+)["']/gi,
+
+        /location\s*=\s*["']([^"']+)["']/gi,
+
+        /XMLHttpRequest.*?open\s*\([^,]+,\s*["']([^"']+)["']/gis,
+
+        /https?:\/\/[^\s"'<>]+/gi
+
+    ];
+
+    for(const r of regexes){
+
+        let m;
+
+        while(
+
+            (m=r.exec(html))
+
+        ){
+
+            add(m[1]||m[0]);
+
+        }
+
+    }
+
+    return [...out];
+
+}
+
+/**************************************************************************
+ * Convenience
+ **************************************************************************/
+
+async submitQuery(source){
+
+    const result=
+
+        await this.query(source);
+
+    if(
+
+        this.started
+
+    ){
+
+        this.crawl();
+
+    }
+
+    return result;
+
+}
+
+clearCrawlerQueue(){
+
+    this.crawlerQueue.length=0;
+
+}
+
+clearVisited(){
+
+    this.visited.clear();
+
+}
+
+crawlerStats(){
+
+    return{
+
+        queue:
+
+            this.crawlerQueue.length,
+
+        visited:
+
+            this.visited.size,
+
+        content:
+
+            this.content.size,
+
+        announcements:
+
+            this.mempool.length,
+
+        compiledQueries:
+
+            this.compiledQueries.size
+
+    };
+
+}
+
+//------------4-----
+
+/******************************************************************************
+ * YaQui
+ * Part 4/6
+ *
+ * Append inside class YaQui
+ *
+ * P2P Networking / Mempool
+ *
+ * NOTE:
+ * This is intentionally transport-agnostic.
+ * Browser WebRTC implementation can replace createTransport().
+ ******************************************************************************/
+
+/**************************************************************************
+ * Peer Management
+ **************************************************************************/
+
+connectPeer(peer){
+
+    if(!peer || !peer.id)
+        throw new Error("Peer requires id.");
+
+    this.peers.set(peer.id,{
+
+        id:peer.id,
+
+        transport:peer,
+
+        connected:true,
+
+        seen:new Set()
+
+    });
+
+    this.emit("peer:connected",peer.id);
+
+}
+
+disconnectPeer(id){
+
+    const peer=this.peers.get(id);
+
+    if(!peer)
+        return;
+
+    if(peer.transport.close)
+        peer.transport.close();
+
+    this.peers.delete(id);
+
+    this.emit("peer:disconnected",id);
+
+}
+
+peerCount(){
+
+    return this.peers.size;
+
+}
+
+/**************************************************************************
+ * Transport
+ **************************************************************************/
+
+createTransport(handler){
+
+    /*
+        Future:
+
+        WebRTC
+
+        BroadcastChannel
+
+        WebSocket
+
+        etc.
+    */
+
+    return{
+
+        send(message){
+
+            handler(message);
+
+        },
+
+        close(){}
+
+    };
+
+}
+
+/**************************************************************************
+ * Mempool
+ **************************************************************************/
+
+mempoolContains(hash){
+
+    return this.mempool.some(
+
+        x=>
+
+            x.queryHash===hash.queryHash &&
+
+            x.sha256===hash.sha256
+
+    );
+
+}
+
+addAnnouncement(msg){
+
+    if(
+
+        this.mempoolContains(msg)
+
+    )
+        return false;
+
+    this.mempool.push(msg);
+
+    this.sortMempool();
+
+    this.emit(
+
+        "mempool:add",
+
+        msg
+
+    );
+
+    return true;
+
+}
+
+sortMempool(){
+
+    this.mempool.sort(
+
+        (a,b)=>
+
+            b.absolutePow-
+
+            a.absolutePow
+
+    );
+
+}
+
+clearMempool(){
+
+    this.mempool.length=0;
+
+}
+
+/**************************************************************************
+ * Forwarding
+ **************************************************************************/
+
+forwardAnnouncement(msg){
+
+    for(
+
+        const peer
+
+        of
+
+        this.peers.values()
+
+    ){
+
+        if(
+
+            peer.seen.has(
+
+                msg.queryHash+
+
+                msg.sha256
+
+            )
+
+        )
+            continue;
+
+        if(
+
+            this.networkPolicy.shouldForward &&
+
+            !this.networkPolicy.shouldForward(
+
+                msg,
+
+                peer
+
+            )
+
+        )
+            continue;
+
+        peer.seen.add(
+
+            msg.queryHash+
+
+            msg.sha256
+
+        );
+
+        if(
+
+            peer.transport.send
+
+        ){
+
+            peer.transport.send({
+
+                type:"announcement",
+
+                payload:msg
+
+            });
+
+        }
+
+    }
+
+}
+
+/**************************************************************************
+ * Receive
+ **************************************************************************/
+
+receive(message){
+
+    switch(message.type){
+
+        case "announcement":
+
+            this.receiveAnnouncement(
+
+                message.payload
+
+            );
+
+            break;
+
+        case "blobRequest":
+
+            this.receiveBlobRequest(
+
+                message.payload
+
+            );
+
+            break;
+
+        case "blob":
+
+            this.receiveBlob(
+
+                message.payload
+
+            );
+
+            break;
+
+    }
+
+}
+
+receiveAnnouncement(msg){
+
+    if(
+
+        this.networkPolicy.shouldAccept &&
+
+        !this.networkPolicy.shouldAccept(msg)
+
+    )
+        return;
+
+    if(
+
+        !this.addAnnouncement(msg)
+
+    )
+        return;
+
+    this.forwardAnnouncement(msg);
+
+    this.emit(
+
+        "announcement:received",
+
+        msg
+
+    );
+
+}
+
+receiveBlobRequest(req){
+
+    const entry=
+
+        this.content.get(req.sha256);
+
+    if(!entry)
+        return;
+
+    const blob=
+
+        entry.blobs[0];
+
+    req.reply({
+
+        type:"blob",
+
+        payload:{
+
+            sha256:
+
+                req.sha256,
+
+            mime:
+
+                entry.mime,
+
+            metadata:
+
+                entry.metadata,
+
+            blob
+
+        }
+
+    });
+
+}
+
+receiveBlob(blob){
+
+    let entry=
+
+        this.content.get(
+
+            blob.sha256
+
+        );
+
+    if(!entry){
+
+        entry=new ContentEntry({
+
+            sha256:
+
+                blob.sha256,
+
+            blob:
+
+                blob.blob,
+
+            mime:
+
+                blob.mime,
+
+            metadata:
+
+                blob.metadata
+
+        });
+
+        this.content.set(
+
+            blob.sha256,
+
+            entry
+
+        );
+
+    }
+    else{
+
+        if(
+
+            !entry.blobs.includes(
+
+                blob.blob
+
+            )
+
+        ){
+
+            entry.blobs.push(
+
+                blob.blob
+
+            );
+
+        }
+
+    }
+
+    this.emit(
+
+        "blob:received",
+
+        blob.sha256
+
+    );
+
+}
+
+/**************************************************************************
+ * Blob Requests
+ **************************************************************************/
+
+requestBlob(
+
+    sha256,
+
+    peerId
+
+){
+
+    const peer=
+
+        this.peers.get(peerId);
+
+    if(!peer)
+        return;
+
+    peer.transport.send({
+
+        type:"blobRequest",
+
+        payload:{
+
+            sha256,
+
+            reply:
+
+                response=>
+
+                    this.receive(response)
+
+        }
+
+    });
+
+}
+
+/**************************************************************************
+ * Broadcast
+ **************************************************************************/
+
+broadcastAnnouncement(
+
+    compiled,
+
+    result,
+
+    entry
+
+){
+
+    const msg={
+
+        queryHash:
+
+            compiled.hash,
+
+        querySource:
+
+            compiled.source,
+
+        sha256:
+
+            entry.sha256,
+
+        score:
+
+            result.score,
+
+        positivePow:
+
+            result.positivePow,
+
+        negativePow:
+
+            result.negativePow,
+
+        netPow:
+
+            result.netPow,
+
+        absolutePow:
+
+            result.absolutePow,
+
+        timestamp:
+
+            Date.now()
+
+    };
+
+    if(
+
+        this.networkPolicy.propagationThreshold
+
+    ){
+
+        if(
+
+            msg.absolutePow<
+
+            this.networkPolicy.propagationThreshold(
+
+                msg
+
+            )
+
+        ){
+
+            return;
+
+        }
+
+    }
+
+    this.addAnnouncement(msg);
+
+    this.forwardAnnouncement(msg);
+
+}
+
+/**************************************************************************
+ * Discovery
+ **************************************************************************/
+
+async connectSeedPeers(seedList){
+
+    /*
+        Placeholder.
+
+        Future implementation:
+
+            fetch seed list
+
+                ↓
+
+            ICE candidates
+
+                ↓
+
+            WebRTC
+
+                ↓
+
+            connectPeer()
+
+    */
+
+    this.emit(
+
+        "network:discover",
+
+        seedList
+
+    );
+
+}
+
+/**************************************************************************
+ * Network Stats
+ **************************************************************************/
+
+networkStats(){
+
+    return{
+
+        peers:
+
+            this.peers.size,
+
+        mempool:
+
+            this.mempool.length,
+
+        content:
+
+            this.content.size,
+
+        announcements:
+
+            this.mempool.length
+
+    };
+
+}
+
+blobSize(blob){
+
+    if(blob==null)
+        return 0;
+
+    if(blob instanceof Blob)
+        return blob.size;
+
+    if(typeof blob==="string")
+        return new TextEncoder().encode(blob).length;
+
+    return new TextEncoder().encode(
+        JSON.stringify(blob)
+    ).length;
+
+}
+
+pinScore(queryResult,entry){
+
+    const size=Math.max(
+
+        1,
+
+        this.blobSize(entry.blobs[0])
+
+    );
+
+    const net=
+
+        Math.max(
+
+            0,
+
+            queryResult.netPow
+
+        );
+
+    return net/size;
+
+}
+
+/**************************************************************************
+ * Storage Statistics
+ **************************************************************************/
+
+storageStats(){
+
+    let blobs=0;
+    let bytes=0;
+
+    for(const e of this.content.values()){
+
+        blobs+=e.blobs.length;
+
+        for(const b of e.blobs)
+            bytes+=this.blobSize(b);
+
+    }
+
+    return{
+
+        entries:this.content.size,
+
+        blobs,
+
+        bytes
+
+    };
+
+}
+
+/**************************************************************************
+ * Blob Lookup
+ **************************************************************************/
+
+getBlob(hash){
+
+    const e=this.content.get(hash);
+
+    if(!e)
+        return null;
+
+    return e.blobs[0]||null;
+
+}
+
+putBlob(hash,blob){
+
+    const e=this.content.get(hash);
+
+    if(!e)
+        return false;
+
+    if(!e.blobs.includes(blob))
+        e.blobs.push(blob);
+
+    this.emit("blob:stored",hash);
+
+    return true;
+
+}
+
+removeBlob(hash){
+
+    const e=this.content.get(hash);
+
+    if(!e)
+        return false;
+
+    e.blobs.length=0;
+
+    this.emit("blob:removed",hash);
+
+    return true;
+
+}
+
+/**************************************************************************
+ * Eviction
+ **************************************************************************/
+
+evictBlobs(){
+
+    const candidates=[];
+
+    for(const q of this.reverseIndex.index.values()){
+
+        for(const result of q.results.values()){
+
+            const entry=this.content.get(result.sha256);
+
+            if(!entry)
+                continue;
+
+            candidates.push({
+
+                query:q.hash,
+
+                result,
+
+                entry,
+
+                score:this.pinScore(
+
+                    result,
+
+                    entry
+
+                )
+
+            });
+
+        }
+
+    }
+
+    candidates.sort(
+
+        (a,b)=>
+
+            a.score-b.score
+
+    );
+
+    for(const c of candidates){
+
+        if(
+
+            this.evictionPolicy.shouldEvictBlob
+
+        ){
+
+            if(
+
+                !this.evictionPolicy.shouldEvictBlob(
+
+                    c
+
+                )
+
+            ){
+
+                continue;
+
+            }
+
+        }
+
+        if(c.score>0)
+            continue;
+
+        this.removeBlob(
+
+            c.entry.sha256
+
+        );
+
+        this.emit(
+
+            "blob:evicted",
+
+            c.entry.sha256
+
+        );
+
+    }
+
+}
+
+/**************************************************************************
+ * Export
+ **************************************************************************/
+
+export(){
+
+    const reverse=[];
+
+    for(
+
+        const q
+
+        of
+
+        this.reverseIndex.index.values()
+
+    ){
+
+        reverse.push({
+
+            hash:q.hash,
+
+            source:q.source,
+
+            results:
+
+                [...q.results.values()]
+
+        });
+
+    }
+
+    return{
+
+        version:1,
+
+        created:Date.now(),
+
+        reverse,
+
+        content:
+
+            [...this.content.values()],
+
+        crawlerPolicy:
+
+            this.crawlerPolicy,
+
+        storagePolicy:
+
+            {},
+
+        networkPolicy:
+
+            {},
+
+        evictionPolicy:{}
+
+    };
+
+}
+
+/**************************************************************************
+ * Import
+ **************************************************************************/
+
+import(data){
+
+    this.reverseIndex=
+
+        new ReverseIndex();
+
+    this.content.clear();
+
+    if(data.content){
+
+        for(const e of data.content){
+
+            this.content.set(
+
+                e.sha256,
+
+                e
+
+            );
+
+        }
+
+    }
+
+    if(data.reverse){
+
+        for(const q of data.reverse){
+
+            this.reverseIndex.ensure(
+
+                q.hash,
+
+                q.source
+
+            );
+
+            for(
+
+                const r
+
+                of
+
+                q.results
+
+            ){
+
+                this.reverseIndex.insert(
+
+                    q.hash,
+
+                    q.source,
+
+                    Object.assign(
+
+                        new QueryResult({}),
+
+                        r
+
+                    )
+
+                );
+
+            }
+
+        }
+
+    }
+
+    this.emit(
+
+        "import"
+
+    );
+
+}
+
+/**************************************************************************
+ * Persistence
+ **************************************************************************/
+
+async save(){
+
+    /*
+        Stub.
+
+        Checkpoint 2+
+
+        IndexedDB
+
+            Queries
+
+            Content
+
+            Votes
+
+            Blobs
+
+            Peer cache
+
+            Queue
+
+    */
+
+    return this.export();
+
+}
+
+async load(data){
+
+    this.import(data);
+
+}
+
+/**************************************************************************
+ * Maintenance
+ **************************************************************************/
+
+garbageCollect(){
+
+    this.evictBlobs();
+
+    this.emit(
+
+        "gc"
+
+    );
+
+}
+
+clear(){
+
+    this.reverseIndex=
+
+        new ReverseIndex();
+
+    this.content.clear();
+
+    this.compiledQueries.clear();
+
+    this.mempool.length=0;
+
+    this.visited.clear();
+
+    this.crawlerQueue.length=0;
+
+    this.emit(
+
+        "clear"
+
+    );
+
+}
+
+/**************************************************************************
+ * Debug
+ **************************************************************************/
+
+dump(){
+
+    return{
+
+        reverse:
+
+            this.reverseIndex,
+
+        content:
+
+            this.content,
+
+        queries:
+
+            this.compiledQueries,
+
+        peers:
+
+            this.peers,
+
+        mempool:
+
+            this.mempool,
+
+        stats:{
+
+            crawler:
+
+                this.crawlerStats(),
+
+            network:
+
+                this.networkStats(),
+
+            storage:
+
+                this.storageStats()
+
+        }
+
+    };
+
+}
+
+/******************************************************************************
+ * YaQui
+ * Part 6/6
+ *
+ * Append inside class YaQui
+ *
+ * Public API
+ * Diagnostics
+ * Defaults
+ ******************************************************************************/
+
+/**************************************************************************
+ * Configuration
+ **************************************************************************/
+
+configure(cfg={}){
+
+    Object.assign(
+
+        this.config,
+
+        cfg
+
+    );
+
+    this.emit(
+
+        "config",
+
+        deepClone(this.config)
+
+    );
+
+    return this;
+
+}
+
+version(){
+
+    return{
+
+        name:"YaQui",
+
+        version:"0.1.0",
+
+        protocol:1
+
+    };
+
+}
+
+/**************************************************************************
+ * Query Helpers
+ **************************************************************************/
+
+listQueries(){
+
+    const out=[];
+
+    for(
+
+        const q
+
+        of
+
+        this.reverseIndex.index.values()
+
+    ){
+
+        out.push({
+
+            hash:q.hash,
+
+            source:q.source,
+
+            matches:q.results.size
+
+        });
+
+    }
+
+    return out;
+
+}
+
+queryStats(queryHash){
+
+    const q=
+
+        this.reverseIndex.get(queryHash);
+
+    if(!q)
+        return null;
+
+    let plus=0;
+    let minus=0;
+
+    for(
+
+        const r
+
+        of
+
+        q.results.values()
+
+    ){
+
+        plus+=r.positivePow;
+        minus+=r.negativePow;
+
+    }
+
+    return{
+
+        hash:q.hash,
+
+        source:q.source,
+
+        matches:q.results.size,
+
+        positivePow:plus,
+
+        negativePow:minus,
+
+        netPow:
+
+            plus-minus
+
+    };
+
+}
+
+/**************************************************************************
+ * Content Helpers
+ **************************************************************************/
+
+listContent(){
+
+    return[
+
+        ...this.content.values()
+
+    ];
+
+}
+
+getContent(hash){
+
+    return this.content.get(hash)||null;
+
+}
+
+removeContent(hash){
+
+    const ok=
+
+        this.content.delete(hash);
+
+    if(ok)
+
+        this.emit(
+
+            "content:removed",
+
+            hash
+
+        );
+
+    return ok;
+
+}
+
+/**************************************************************************
+ * Search
+ **************************************************************************/
+
+search(text){
+
+    const out=[];
+
+    text=
+
+        String(text)
+
+        .toLowerCase();
+
+    for(
+
+        const e
+
+        of
+
+        this.content.values()
+
+    ){
+
+        for(
+
+            const blob
+
+            of
+
+            e.blobs
+
+        ){
+
+            if(
+
+                typeof blob!=="string"
+
+            )
+
+                continue;
+
+            if(
+
+                blob
+
+                .toLowerCase()
+
+                .includes(text)
+
+            ){
+
+                out.push(e);
+
+                break;
+
+            }
+
+        }
+
+    }
+
+    return out;
+
+}
+
+/**************************************************************************
+ * Peer Helpers
+ **************************************************************************/
+
+listPeers(){
+
+    return[
+
+        ...this.peers.values()
+
+    ];
+
+}
+
+broadcast(message){
+
+    for(
+
+        const peer
+
+        of
+
+        this.peers.values()
+
+    ){
+
+        if(
+
+            peer.transport.send
+
+        ){
+
+            peer.transport.send(
+
+                deepClone(message)
+
+            );
+
+        }
+
+    }
+
+}
+
+/**************************************************************************
+ * Bootstrap
+ **************************************************************************/
+
+async bootstrap(){
+
+    await this.start();
+
+    if(
+
+        this.crawlerPolicy.seeds.length
+
+    ){
+
+        this.crawl();
+
+    }
+
+}
+
+/**************************************************************************
+ * Shutdown
+ **************************************************************************/
+
+async shutdown(){
+
+    await this.stop();
+
+    this.clearCrawlerQueue();
+
+}
+
+/**************************************************************************
+ * Diagnostics
+ **************************************************************************/
+
+health(){
+
+    return{
+
+        started:this.started,
+
+        peers:
+
+            this.peers.size,
+
+        queue:
+
+            this.crawlerQueue.length,
+
+        visited:
+
+            this.visited.size,
+
+        content:
+
+            this.content.size,
+
+        queries:
+
+            this.compiledQueries.size,
+
+        announcements:
+
+            this.mempool.length
+
+    };
+
+}
+
+ping(){
+
+    return{
+
+        ok:true,
+
+        timestamp:
+
+            Date.now()
+
+    };
+
+}
+
+/**************************************************************************
+ * Defaults
+ **************************************************************************/
+
+static defaults(){
+
+    return{
+
+        crawler:{
+
+            seeds:[],
+
+            maxDepth:4,
+
+            maxConcurrent:4,
+
+            revisitInterval:86400000
+
+        },
+
+        network:{
+
+            propagationThreshold(){
+
+                return 0;
+
+            }
+
+        },
+
+        eviction:{
+
+            shouldEvictBlob(c){
+
+                return c.score<=0;
+
+            }
+
+        },
+
+        storage:{}
+
+    };
+
+}
+
+/**************************************************************************
+ * Factory
+ **************************************************************************/
+
+static create(config={}){
+
+    const defaults=
+
+        YaQui.defaults();
+
+    return new YaQui({
+
+        ...defaults,
+
+        ...config
+
+    });
+
+}
+}
+
+global.YaQui=YaQui;
+
+})(globalThis);
 ```
 
 ## DOOMSDAY-WEBSITE
