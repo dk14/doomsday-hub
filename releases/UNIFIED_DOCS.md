@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-17T04:29:53.304390*
+*Generated: 2026-07-17T04:35:09.053638*
 ---
 
 ## CRYPTO
@@ -25564,7 +25564,7 @@ async function chat(messages, apiKey) {
 <meta property="og:description"
       content="Early‑warning decentralized security system for your Bitcoin wallet, and more">
 <meta property="og:image" content="https://doomsdayexplorer.online/android-chrome-512x512.png">
-<meta property="og:url"   content="https://dk14.github.io/crypto">
+<meta property="og:url"   content="https://digidoom.click">
 <meta property="og:type"  content="website">
 <meta name="twitter:card"        content="https://doomsdayexplorer.online/android-chrome-512x512.png">
 <meta name="twitter:title"       content="Doomsday Explorer">
@@ -26570,6 +26570,9 @@ Notes:
         &nbsp;&nbsp;<i style="font-size: 0.7rem;opacity: 0.8">Future profit-share and assets <strong>compensate advertisers automatically</strong>, in accordance with corresponding initial fund contributions<i style="display: none"> the compensation will reflect amount of util work done by contributor/player - no explorer network - no profits to share, share in the fund is amount of risk player/contributor took - how player/contributor values his work subjectively - real revenue becomes objective measure</i>, more in <a class="text-accent" href="https://github.com/dk14/crypto/tree/main/chats/btc-audit#revenue-simulations--project-tracking" target="_blank" rel="noopener noreferrer">README</a></i> 
         <br/>
         &nbsp;&nbsp;<i style="font-size: 0.7rem;opacity: 0.8"> <a class="text-accent" href="#benefits" onclick="navigator.clipboard.writeText('http://doomsdayexplorer.online');alert('🖇️ Copy complete: http://doomsdayexplorer.online')">Copy website URL</a>&nbsp;&nbsp;&nbsp; <a class="text-accent" href="#benefits" onclick="navigator.clipboard.writeText('http://crypto.doomsdayexplorer.online/front.html#benefits');alert('🖇️ Copy complete: http://crypto.doomsdayexplorer.online/front.html#benefits')">Copy fund & contribute URL</a>&nbsp;&nbsp;&nbsp; <a class="text-accent" href="#benefits" onclick="navigator.clipboard.writeText('http://official.doomsdayexplorer.online/simple');alert('🖇️ Copy complete: http://official.doomsdayexplorer.online/simple')">Copy official page URL</a></i> 
+        <br/>
+        &nbsp;&nbsp;<i style="font-size: 0.7rem;opacity: 0.8"> <a class="text-accent" href="#benefits" onclick="navigator.clipboard.writeText('http://digidoom.org');alert('🖇️ Copy complete: http://digidoom.org')">Copy Digidoom.org link</a>&nbsp;&nbsp;&nbsp; <a class="text-accent" href="#benefits" onclick="navigator.clipboard.writeText('http://digidoom.xyz');alert('🖇️ Copy complete: http://digidoom.xyz')">Copy Digidoom.xyz link</a>&nbsp;&nbsp;&nbsp; <a class="text-accent" href="#benefits" onclick="navigator.clipboard.writeText('http://digidoom.click');alert('🖇️ Copy complete: http://digidoom.click')">Copy Digidoom.click link</a></i> 
+
 </div>
 
 
@@ -28358,7 +28361,7 @@ footer a:hover{color:var(--c-accent);}
 <head>
 
 <meta charset="UTF-8">
-<title>Doomsday Explorer – Intro</title>
+<title>DOOMsday Explorer</title>
 <style>
 
   html,body{
@@ -28515,7 +28518,7 @@ footer a:hover{color:var(--c-accent);}
 <meta property="og:description"
       content="Early‑warning decentralized security system for your Bitcoin wallet, and more">
 <meta property="og:image" content="https://doomsdayexplorer.online/android-chrome-512x512.png">
-<meta property="og:url"   content="https://dk14.github.io/crypto">
+<meta property="og:url"   content="https://digidoom.xyz">
 <meta property="og:type"  content="website">
 <meta name="twitter:card"        content="https://doomsdayexplorer.online/android-chrome-512x512.png">
 <meta name="twitter:title"       content="Doomsday Explorer">
