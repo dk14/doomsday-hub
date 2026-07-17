@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-17T05:38:21.409833*
+*Generated: 2026-07-17T05:39:55.857461*
 ---
 
 ## CRYPTO
@@ -58450,11 +58450,7 @@ Checkpoint 0.1 - Part 1/6
 
             return this.mempool.some(
 
-                x =>
-
-                    x.queryHash === hash.queryHash &&
-
-                    x.sha256 === hash.sha256
+                x => x.queryHash === hash.queryHash && x.sha256 === hash.sha256
 
             );
 
@@ -58464,13 +58460,9 @@ Checkpoint 0.1 - Part 1/6
 
             if (this.mempoolContains(msg))
                 return false;
-
             this.mempool.push(msg);
-
             this.sortMempool();
-
             this.emit("mempool:add", msg);
-
             return true;
 
         }
