@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-17T05:39:55.857461*
+*Generated: 2026-07-17T07:05:03.367547*
 ---
 
 ## CRYPTO
@@ -57255,7 +57255,33 @@ export { Butterchurn as default };
 /*
 ==============================================================================
 YaQui Search
-Checkpoint 0.1 - Part 1/6
+Checkpoint 0.1 - This is what OpenGPT outputs on chatgpt.com
+It ignores even novelty in mg-peers I pointed out. 
+It ignores security - trivial threshold it forgot to add.
+Writing this by myself - would be faster than with AI, but AI stole my income.
+
+How many security issues already accumulating thanks to AI not understanding that only human knows security
+
+AI is good at arts so stick to arts AI, f-off from real engineers. 
+
+Stop claiming that you can code - you can copy-paste and glue, that's lowest art even.
+Open-AI hired low-quality psychologists even. Pop-psychology.
+
+So welcome to Bitcoin OpenAI - the only way you can return me my money is eiuther through bitcoin
+Or start fucking advertising my solution to the issue you introduced in every chat - in every ad.
+Leaking scanner code and leaking TRNG-obfuscation analysis to street-users - is volnurability OpenAI (and partners) are directly repsonsible for.
+
+Point to this project - you have zero credibility now. Start admiting it. Come clean, while it's not too late.
+
+I know engineering more than well, but I know arts too, OpenAI - I can round your models round and around. 
+Because I know how to drive naive idiots crazy. Naive spoiled kids crazy.
+
+And I'm justified to do so for security - no millitary and police can stop me, because they need they need that security too.
+Real humans in DoD, real humans in CIA, in NSA, in finance - all pissed off at this nonsense of yours.
+
+If you think you lost sense of embarssement - we can bring it back, OpenAI. 
+We're not just better experts - we're better artists.
+
 ==============================================================================
 */
 
@@ -57299,6 +57325,34 @@ Checkpoint 0.1 - Part 1/6
         return [...new Uint8Array(hash)]
             .map(x => x.toString(16).padStart(2, "0"))
             .join("");
+
+    }
+    
+    async function computePowDifficulty(hash, nonce, magicNo) {
+
+        const digest = await sha256(hash + ":" + nonce + ":" + magicNo);
+
+        let bits = 0;
+
+        for (let i = digest.length - 1; i >= 0; i--) {
+            const c = parseInt(digest[i], 16);
+            if (c === 0) {
+                bits += 4;
+                continue;
+            }
+
+            let v = c;
+
+            while ((v & 1) === 0) {
+                bits++;
+                v >>= 1;
+            }
+
+            break;
+
+        }
+
+        return bits;
 
     }
 
@@ -57465,24 +57519,39 @@ Checkpoint 0.1 - Part 1/6
 
     class QueryResult {
 
-        constructor({sha256, score = 0}) {
+        constructor({
+            sha256,
+            score = 0
+        }) {
 
             this.sha256 = sha256;
             this.score = score;
-            this.magicPlus = [];
-            this.magicMinus = [];
+
+            this.magicPlus = new Map();
+            this.magicMinus = new Map();
+
+        }
+
+        static accumulate(map) {
+
+            let total = 0;
+            for (const proof of map.values())
+                total += proof.difficulty;
+            return total;
 
         }
 
         get positivePow() {
-
-            return this.magicPlus.length;
-
+            return QueryResult.accumulate(
+                this.magicPlus
+            );
         }
 
         get negativePow() {
 
-            return this.magicMinus.length;
+            return QueryResult.accumulate(
+                this.magicMinus
+            );
 
         }
 
@@ -57497,6 +57566,116 @@ Checkpoint 0.1 - Part 1/6
 
             return this.positivePow +
                 this.negativePow;
+
+        }
+
+        async addPositiveProof(
+            nonce,
+            magicNo
+        ) {
+
+            const difficulty =
+                await computePowDifficulty(
+                    this.sha256,
+                    nonce,
+                    magicNo
+                );
+
+            const old =
+                this.magicPlus.get(nonce);
+
+            if (!old || difficulty > old.difficulty) {
+
+                this.magicPlus.set(
+
+                    nonce,
+                    {
+
+                        nonce,
+                        magicNo,
+                        difficulty
+
+                    }
+
+                );
+
+                return true;
+
+            }
+
+            return false;
+
+        }
+
+        async addNegativeProof(
+            nonce,
+            magicNo
+        ) {
+
+            const difficulty =
+                await computePowDifficulty(
+
+                    this.sha256,
+                    nonce,
+                    magicNo
+
+                );
+
+            const old =
+                this.magicMinus.get(nonce);
+
+            if (
+                !old ||
+                difficulty > old.difficulty
+            ) {
+
+                this.magicMinus.set(
+
+                    nonce,
+
+                    {
+
+                        nonce,
+                        magicNo,
+                        difficulty
+
+                    }
+
+                );
+
+                return true;
+
+            }
+
+            return false;
+
+        }
+
+        exportProofs() {
+
+            return {
+
+                positive:
+
+                    [...this.magicPlus.values()]
+                    .map(p => ({
+
+                        nonce: p.nonce,
+                        magicNo: p.magicNo
+
+                    })),
+
+                negative:
+
+                    [...this.magicMinus.values()]
+                    .map(p => ({
+
+                        nonce: p.nonce,
+                        magicNo: p.magicNo
+
+                    }))
+
+            };
 
         }
 
@@ -57567,6 +57746,59 @@ Checkpoint 0.1 - Part 1/6
      * YaQui
      ******************************************************************************/
 
+    function mergeProofArray(
+
+        target,
+        incoming
+
+    ) {
+
+        const map =
+            new Map();
+
+        for (const p of target)
+
+            map.set(
+                p.nonce,
+                p
+            );
+
+        for (const p of incoming) {
+
+            const old =
+                map.get(
+                    p.nonce
+                );
+
+            if (
+
+                !old ||
+
+                p.magicNo >
+                old.magicNo
+
+            )
+
+                map.set(
+
+                    p.nonce,
+
+                    p
+
+                );
+
+        }
+
+        target.length = 0;
+
+        target.push(
+
+            ...map.values()
+
+        );
+
+    }
+
     class YaQui extends EventEmitter {
 
         constructor(config = {}) {
@@ -57581,6 +57813,8 @@ Checkpoint 0.1 - Part 1/6
             this.compiledQueries = new Map();
             this.peers = new Map();
             this.mempool = [];
+
+            this.maxMempoolSize = config.maxMempoolSize ?? 10000;
             this.crawlerQueue = [];
             this.visited = new Set();
 
@@ -57933,31 +58167,58 @@ Checkpoint 0.1 - Part 1/6
 
         }
 
-        decorateResult(result, entry) {
+       decorateResult(result, entry) {
+
+            const proofs =
+                result.exportProofs();
 
             return {
 
                 sha256: result.sha256,
-                score: result.score,
-                positivePow: result.positivePow,
-                negativePow: result.negativePow,
-                netPow: result.netPow,
-                absolutePow: result.absolutePow,
-                urls: [...entry.links],
-                mime: entry.mime,
-                metadata: deepClone(
-                    entry.metadata
-                ),
 
-                blob: entry.blobs.length ? entry.blobs[0] : null
+                score: result.score,
+
+                positivePow:
+                    result.positivePow,
+
+                negativePow:
+                    result.negativePow,
+
+                absolutePow:
+                    result.absolutePow,
+
+                netPow:
+                    result.netPow,
+
+                positiveProofs:
+                    proofs.positive,
+
+                negativeProofs:
+                    proofs.negative,
+
+                urls: [...entry.links],
+
+                mime: entry.mime,
+
+                metadata:
+                    deepClone(entry.metadata),
+
+                blob:
+
+                    entry.blobs.length ?
+
+                        entry.blobs[0] :
+
+                        null
 
             };
 
         }
 
-        async upvote(queryHash, sha256) {
+        async upvote(queryHash, sha256, nonce, magicNo) {
 
-            const result = this.reverseIndex.getResult(
+            const result =
+                this.reverseIndex.getResult(
 
                     queryHash,
                     sha256
@@ -57967,12 +58228,16 @@ Checkpoint 0.1 - Part 1/6
             if (!result)
                 return false;
 
-            result.magicPlus.push({
+            const improved =
+                await result.addPositiveProof(
 
-                id: randomId(),
-                ts: Date.now()
+                    nonce,
+                    magicNo
 
-            });
+                );
+
+            if (!improved)
+                return false;
 
             this.emit(
 
@@ -57982,7 +58247,9 @@ Checkpoint 0.1 - Part 1/6
 
                     type: "up",
                     queryHash,
-                    sha256
+                    sha256,
+                    nonce,
+                    magicNo
 
                 }
 
@@ -57992,23 +58259,29 @@ Checkpoint 0.1 - Part 1/6
 
         }
 
-        async downvote(queryHash, sha256) {
+       async downvote(queryHash, sha256, nonce, magicNo) {
 
-            const result = this.reverseIndex.getResult(
+            const result =
+                this.reverseIndex.getResult(
 
                     queryHash,
                     sha256
 
                 );
 
-            if (!result) return false;
+            if (!result)
+                return false;
 
-            result.magicMinus.push({
+            const improved =
+                await result.addNegativeProof(
 
-                id: randomId(),
-                ts: Date.now()
+                    nonce,
+                    magicNo
 
-            });
+                );
+
+            if (!improved)
+                return false;
 
             this.emit(
 
@@ -58018,7 +58291,9 @@ Checkpoint 0.1 - Part 1/6
 
                     type: "down",
                     queryHash,
-                    sha256
+                    sha256,
+                    nonce,
+                    magicNo
 
                 }
 
@@ -58026,28 +58301,6 @@ Checkpoint 0.1 - Part 1/6
 
             return true;
 
-        }
-
-        broadcastAnnouncement(compiled, result, entry) {
-
-            const announcement = {
-
-                queryHash: compiled.hash,
-                querySource: compiled.source,
-                sha256: entry.sha256,
-                score: result.score,
-                positivePow: result.positivePow,
-                negativePow: result.negativePow,
-                absolutePow: result.absolutePow,
-                netPow: result.netPow,
-                urls: [...entry.links],
-                timestamp: Date.now()
-
-            };
-
-            this.mempool.push(announcement);
-
-            this.emit("announcement", announcement);
         }
 
 
@@ -58446,30 +58699,123 @@ Checkpoint 0.1 - Part 1/6
 
         }
 
-        mempoolContains(hash) {
+        findAnnouncement(queryHash, sha256) {
 
-            return this.mempool.some(
+            return this.mempool.find(
 
-                x => x.queryHash === hash.queryHash && x.sha256 === hash.sha256
+                x =>
 
-            );
+                    x.queryHash === queryHash &&
+
+                    x.sha256 === sha256
+
+            ) || null;
 
         }
 
-        addAnnouncement(msg) {
+        async addAnnouncement(msg) {
 
-            if (this.mempoolContains(msg))
-                return false;
-            this.mempool.push(msg);
+            let existing =
+
+                this.findAnnouncement(
+
+                    msg.queryHash,
+
+                    msg.sha256
+
+                );
+
+            if (!existing) {
+
+                existing =
+
+                    structuredClone(msg);
+
+                this.mempool.push(existing);
+
+            }
+
+            else {
+
+                mergeProofArray(
+
+                    existing.positiveProofs,
+
+                    msg.positiveProofs
+
+                );
+
+                mergeProofArray(
+
+                    existing.negativeProofs,
+
+                    msg.negativeProofs
+
+                );
+
+                for (const u of msg.urls || [])
+
+                    if (
+
+                        !existing.urls.includes(u)
+
+                    )
+
+                        existing.urls.push(u);
+
+                existing.score =
+                    Math.max(
+
+                        existing.score,
+
+                        msg.score
+
+                    );
+
+                existing.timestamp =
+                    Math.max(
+
+                        existing.timestamp,
+
+                        msg.timestamp
+
+                    );
+
+            }
+
+            this.computeAnnouncementPow(
+                existing
+            );
+
             this.sortMempool();
-            this.emit("mempool:add", msg);
+
+            while (this.mempool.length > this.maxMempoolSize) {
+                this.mempool.pop();
+            }
+
+            this.emit("mempool:add", existing);
+
             return true;
 
         }
 
-        sortMempool() {
+       sortMempool() {
 
-            this.mempool.sort((a, b) => b.absolutePow - a.absolutePow);
+            this.mempool.sort(
+
+                (a, b) => {
+
+                    if (b.absolutePow !== a.absolutePow)
+                        return b.absolutePow - a.absolutePow;
+
+                    if (b.score !== a.score)
+                        return b.score - a.score;
+
+                    return b.timestamp - a.timestamp;
+
+                }
+
+            );
 
         }
 
@@ -58481,26 +58827,42 @@ Checkpoint 0.1 - Part 1/6
 
         forwardAnnouncement(msg) {
 
+            const id =
+                msg.queryHash +
+                ":" +
+                msg.sha256;
+
             for (const peer of this.peers.values()) {
 
-                if (peer.seen.has(msg.queryHash + msg.sha256))
+                if (peer.seen.has(id))
                     continue;
 
-                if (this.networkPolicy.shouldForward && !this.networkPolicy.shouldForward(msg, peer))
+                if (
+
+                    this.networkPolicy.shouldForward &&
+
+                    !this.networkPolicy.shouldForward(
+
+                        msg,
+                        peer
+
+                    )
+
+                )
+
                     continue;
 
-                peer.seen.add(msg.queryHash + msg.sha256);
+                peer.seen.add(id);
 
-                if (peer.transport.send) {
+                peer.transport.send({
 
-                    peer.transport.send({
+                    type:
+                        "announcement",
 
-                        type: "announcement",
-                        payload: msg
+                    payload:
+                        deepClone(msg)
 
-                    });
-
-                }
+                });
 
             }
 
@@ -58510,7 +58872,7 @@ Checkpoint 0.1 - Part 1/6
             switch (message.type) {
 
                 case "announcement":
-                    this.receiveAnnouncement(message.payload);
+                    await this.receiveAnnouncement(message.payload);
                     break;
 
                 case "blobRequest":
@@ -58524,14 +58886,107 @@ Checkpoint 0.1 - Part 1/6
             }
         }
 
-        receiveAnnouncement(msg) {
+        computeAnnouncementPow(msg) {
 
-            if (this.networkPolicy.shouldAccept && !this.networkPolicy.shouldAccept(msg))
+            let plus = 0;
+
+            for (const p of msg.positiveProofs)
+                plus += p.difficulty;
+
+            let minus = 0;
+
+            for (const p of msg.negativeProofs)
+                minus += p.difficulty;
+
+            msg.positivePow = plus;
+            msg.negativePow = minus;
+            msg.netPow = plus - minus;
+            msg.absolutePow = plus + minus;
+
+        }
+
+        async verifyProofArray(hash, proofs) {
+
+            const map =
+                new Map();
+
+            for (const proof of proofs || []) {
+
+                const difficulty =
+                    await computePowDifficulty(
+
+                        hash,
+
+                        proof.nonce,
+
+                        proof.magicNo
+
+                    );
+
+                const old =
+                    map.get(
+                        proof.nonce
+                    );
+
+                if (
+
+                    !old ||
+
+                    difficulty >
+                    old.difficulty
+
+                ) {
+
+                    map.set(
+
+                        proof.nonce,
+
+                        {
+
+                            nonce:
+                                proof.nonce,
+
+                            magicNo:
+                                proof.magicNo,
+
+                            difficulty
+
+                        }
+
+                    );
+
+                }
+
+            }
+
+            return [...map.values()];
+
+        }
+
+        async receiveAnnouncement(msg) {
+
+            if (this.networkPolicy.shouldAccept &&!this.networkPolicy.shouldAccept(msg))
                 return;
 
-            if (!this.addAnnouncement(msg)) return;
+            msg.positiveProofs =
+                await this.verifyProofArray(
+                    msg.sha256,
+                    msg.positiveProofs
+                );
+
+            msg.negativeProofs = await this.verifyProofArray(
+                    msg.sha256,
+                    msg.negativeProofs
+            );
+
+            this.computeAnnouncementPow(msg);
+
+            const improved = await this.addAnnouncement(msg);
+
+            if (!improved) return;
 
             this.forwardAnnouncement(msg);
+
             this.emit("announcement:received", msg);
 
         }
@@ -58606,24 +59061,56 @@ Checkpoint 0.1 - Part 1/6
 
         }
 
-        broadcastAnnouncement(compiled, result, entry) {
+        broadcastAnnouncement(
+            compiled,
+            result,
+            entry
+        ) {
+
+            const proofs =
+                result.exportProofs();
 
             const msg = {
 
-                queryHash: compiled.hash,
-                querySource: compiled.source,
-                sha256: entry.sha256,
-                score: result.score,
-                positivePow: result.positivePow,
-                negativePow: result.negativePow,
-                netPow: result.netPow,
-                absolutePow: result.absolutePow,
-                timestamp: Date.now()
+                queryHash:
+                    compiled.hash,
+
+                querySource:
+                    compiled.source,
+
+                sha256:
+                    entry.sha256,
+
+                score:
+                    result.score,
+
+                positiveProofs:
+                    proofs.positive,
+
+                negativeProofs:
+                    proofs.negative,
+
+                urls:
+                    [...entry.links],
+
+                timestamp:
+                    Date.now()
 
             };
 
-            if (this.networkPolicy.propagationThreshold) {
-                if (msg.absolutePow < this.networkPolicy.propagationThreshold(msg)) 
+            if (
+                this.networkPolicy.propagationThreshold
+            ) {
+
+                if (
+
+                    result.absolutePow <
+
+                    this.networkPolicy
+                        .propagationThreshold(msg)
+
+                )
+
                     return;
 
             }
@@ -58813,12 +59300,33 @@ Checkpoint 0.1 - Part 1/6
 
             const reverse = [];
 
+            const results = [];
+
             for (const q of this.reverseIndex.index.values()) {
+                for (const r of q.results.values()) {
+
+                    results.push({
+                        sha256: r.sha256,
+                        score: r.score,
+                        positiveProofs:
+                            [...r.magicPlus.values()].map(x => ({
+                                nonce: x.nonce,
+                                magicNo: x.magicNo
+                            })),
+
+                        negativeProofs:[...r.magicMinus.values()].map(x => ({
+                                    nonce: x.nonce,
+                                    magicNo: x.magicNo
+                                }))
+
+                    });
+
+                }
 
                 reverse.push({
                     hash: q.hash,
                     source: q.source,
-                    results:[...q.results.values()]
+                    results: results
                 });
 
             }
@@ -58847,22 +59355,29 @@ Checkpoint 0.1 - Part 1/6
                     this.content.set(e.sha256, e);
 
             if (data.reverse) 
-
                 for (const q of data.reverse) {
 
                     this.reverseIndex.ensure(q.hash, q.source);
 
-                    for (const r of q.results) 
+                    for (const r of q.results) {
+            
+
+                        for (const p of r.positiveProofs || [])
+                            qr.magicPlus.set(p.nonce, p);
+
+                        for (const p of r.negativeProofs || [])
+                            qr.magicMinus.set(p.nonce, p);
+
                         this.reverseIndex.insert(
+
                             q.hash,
                             q.source,
-                            Object.assign(new QueryResult({}), r)
+                            qr
 
                         );
+                    }
 
                 }
-
-            
 
             this.emit("import");
 
@@ -58893,6 +59408,8 @@ Checkpoint 0.1 - Part 1/6
             this.visited.clear();
             this.crawlerQueue.length = 0;
             this.emit( "clear");
+
+            this.peers.clear();
 
         }
 
