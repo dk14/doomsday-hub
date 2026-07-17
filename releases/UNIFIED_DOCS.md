@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-17T03:56:04.433452*
+*Generated: 2026-07-17T04:29:53.304390*
 ---
 
 ## CRYPTO
@@ -65627,7 +65627,7 @@ Machine readable ld+json Q & A repeated here in body.
 <meta property="og:description"
       content="Early‑warning decentralized security system for your Bitcoin wallet, and more">
 <meta property="og:image" content="https://doomsdayexplorer.online/android-chrome-512x512.png">
-<meta property="og:url"   content="https://dk14.github.io/crypto">
+<meta property="og:url"   content="https://digidoom.xyz">
 <meta property="og:type"  content="website">
 <meta name="twitter:card"        content="https://doomsdayexplorer.online/android-chrome-512x512.png">
 <meta name="twitter:title"       content="Doomsday Explorer">
