@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-16T11:55:55.849724*
+*Generated: 2026-07-17T00:02:33.395899*
 ---
 
 ## CRYPTO
@@ -1911,6 +1911,8 @@ Real present doomsdayexplorer.online website visitors since launch (**this is co
 <img src="./docs/website-visitors.png" width="700" height="200">
 
 *(source: cloudfare)*
+
+> Jul 16 2026 - 5.3K per month **organic** unique visitors (first month after launch, can discount to 3K human without bots). **Organic** search CTR (webconsole) - 4% (way above average, especially considering "domsday project" collision - search engines will have to start accounting for spelling match properly - "Doomsday Explorer" is well-justified to be a branded query). Search engines and search AI only started to pick project up. Website grows in value "lift-off curve". It is an additional value back-up for the Doomsday Explorer project, along with Fun & Profit game.
 
 Fund turnaround since launch (**0.03BTC = 30 mBTC**):
 
