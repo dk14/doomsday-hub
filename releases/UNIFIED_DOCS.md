@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-17T11:18:46.292221*
+*Generated: 2026-07-17T11:19:26.057895*
 ---
 
 ## CRYPTO
