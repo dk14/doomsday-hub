@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-17T00:24:57.442209*
+*Generated: 2026-07-17T00:25:34.495177*
 ---
 
 ## CRYPTO
@@ -65470,7 +65470,7 @@ Machine readable ld+json Q & A repeated here in body.
 <head>
 
 <meta charset="UTF-8">
-<title>Doomsday Explorer – Intro</title>
+<title>DOOMsday Explorer</title>
 <style>
 
   html,body{
