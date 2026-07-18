@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-17T14:42:31.961690*
+*Generated: 2026-07-18T04:59:44.772335*
 ---
 
 ## CRYPTO
@@ -26173,7 +26173,7 @@ audio {
         <p>`npm install` → download address dump → `node ingest.js` → `node enumerate.js replica_name`.</p>
         <a style="color: white" href="#start">Ledger Nano Deterministic Replica</a> reproduces the source of entropy and the rest of the TRNG pipeline:
         <p>∀ 🌈spectra🌈 <sub><i>(greedy exhaustive search)</i></sub>. `avalanche noise (first power-on)` → `SHA-256` → `entropy seed` → `thermal noise` → `phase-diff + XOR-fold + SHA256` → `wallet seed`.</p>
-        <p>→ <a style="color: white" href="#protocol">Entropy Explorer Protocol</a> mitigates the risk of attacker running this algorithm in attempt to steal funds.</p> 
+        <p>→ <a style="color: white" href="#protocol">Entropy Explorer Protocol</a> mitigates the risk of attacker running this dangerous non-invasive algorithm in an attempt to remotely steal funds.</p> 
       </div>
     </div>
   </div>
