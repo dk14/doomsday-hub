@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-19T11:06:13.582191*
+*Generated: 2026-07-19T11:31:15.555663*
 ---
 
 ## CRYPTO
@@ -26451,13 +26451,22 @@ Notes:
         <p><i>Instant</i> inclusion in the Explorer Network <strong style="color: green">"profit‑share"</strong> ledger. </p>
         <p><i id="revenuecomes">(revenue comes from network fees on compute rewards and other computationally intensive services, to auto-reward contributors)</i></p>
         <p>
+          &nbsp&nbsp&nbsp
+        
         <a id="btctalk" href="https://crypto.doomsdayexplorer.online/article.pdf"
           style="color:#28a745; text-decoration:none; display: none"
           target="_blank"
           onmouseover="this.style.color='#218838'; this.style.textDecoration='underline';"
           onmouseout="this.style.color='#28a745'; this.style.textDecoration='none';">
-          Article Pre-Print
-        </a>
+          Read Article Pre-Print
+        </a>&nbsp&nbsp
+        <a id="don" href="https://www.paypal.com/ncp/payment/BJYMUTH3YXUV6"
+          style="color:#28a745; text-decoration: underline; "
+          target="_blank"
+          onmouseover="this.style.color='#218838'; this.style.textDecoration='underline';"
+          onmouseout="this.style.color='#28a745'; this.style.textDecoration='none';">
+          Paypal-Donate to R&D <-
+        </a></p>
       </p>
 
 
