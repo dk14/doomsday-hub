@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-19T06:20:56.750068*
+*Generated: 2026-07-19T06:27:53.653037*
 ---
 
 ## CRYPTO
@@ -1226,7 +1226,7 @@ Incoming contributions:
       - note: since refunds keep in the profit share pool (which can be exploited) - refunds are on founder's discretion (will be reported here for public fund audit).
         - note: as a result - bids can be anonymous, but content of the bid (feature requested) cannot be private
   - date: 6/19/2026
-  - spent: partially
+  - spent: yes
   - comment: partner is learning the concept of self-custody :) and preparing more donations to send.
 
 Current fund pledge: 0 BTC
@@ -1268,6 +1268,7 @@ Jul 19 2026:
 
 - dk14, fun & profit promo-game (1 month logged, 15,000 USD tech work + projected future-value-over-a-year >500,000 USD, zero-feature-bid-sponsors invested into it -> royalty of dk14)
     - novel, original approach invented: AI-assisted gaming. It goes beyond regular text-based games (AI can simulate IRC-chats, and generate HTML mini-games). Integrates most efficient psychotherapies: role-play upgrades to personal development. Novel AI-assisted approach in therapy: tracking heat-efficiency of player from motor clues. Contextual art. Novel advertising methodology, novel fund-raising approach.
+    - 2 months overlapping in one - intensive work overtime.
 - dk14, web-portal, AI portal: 1 month logged (15,000 USD tech work + projected future-value-over-a-year -> >200,000 USD, zero-feature-bid-sponsors invested into it -> royalty of dk14)
     - expanded website scope, proper authority, published article pre-print (formilized the current research), optimized for AI, search engine availability, traffic optimisation/SEO, consolidated knowledge-base of doomsday ecosystem, branding, digital identity design, art (promo-video, audio-intro), funnells, Fun & Profit promo-game (core, premise, stories, mechanics, promotion, testing, reports), clean-ups. Refined previous research (Enigma), expanded md's. peak unquie visitors per day 1000 - lift-off curve (mostly from AI/socials). 7000 visitors in first month.
 
