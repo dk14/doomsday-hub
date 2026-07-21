@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-20T10:35:30.148045*
+*Generated: 2026-07-21T04:51:14.998646*
 ---
 
 ## CRYPTO
@@ -26470,7 +26470,7 @@ Notes:
           target="_blank"
           onmouseover="this.style.color='#218838'; this.style.textDecoration='underline';"
           onmouseout="this.style.color='#28a745'; this.style.textDecoration='none';">
-          Paypal-Donate to R&D <-
+          Paypal-Donate to R&D <-  💳 
         </a></p>
       </p>
 
@@ -28230,7 +28230,7 @@ footer a:hover{color:var(--c-accent);}
 
         <p><strong>Support project with SEPA/iDEAL: </strong> <a href="https://pagome.com/pay?for=Dmytro+Kondratiuk#NL49ABNA0137166214">NL49 ABNA 0137 1662 14</a> </div></p>
         <p><strong>Invest/Participate in the project with Bitcoin: </strong> <br/><a class="btn2 btn-primary mt-3" href="bitcoin:bc1qekvmkczge3hxrvwdf2lj3yyvgjnparn3fdf9lg" onclick="navigator.clipboard.writeText('bc1qekvmkczge3hxrvwdf2lj3yyvgjnparn3fdf9lg'); alert('bc1qekvmkczge3hxrvwdf2lj3yyvgjnparn3fdf9lg\n\n🧷  Clipboard copy complete! \n The next step is to proceed to your preferred Bitcoin wallet\n 🙏 🙏 🙏\n\n (📈Explorer Network revenue rewards will be routed to your address proportionally to contribution📈)')"><code>bc1qekvmkczge3hxrvwdf2lj3yyvgjnparn3fdf9lg</code></a></div></p>
-        <p><a href="https://www.paypal.com/ncp/payment/BJYMUTH3YXUV6">Donate for Universal Doomsday R & D: digidoom.org</a></p>
+        <p><a href="https://www.paypal.com/ncp/payment/BJYMUTH3YXUV6">Donate for Universal Doomsday R & D: digidoom.org 💳 </a></p>
         <p><a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/home">EU Horizon</a> PIC: 863479548</p>
          <p><strong>Mailing address:</strong> 30 Oorgat, Edam, 1135CR, Netherlands</div></p>
        <p>
@@ -39955,7 +39955,7 @@ footer a:hover{color:var(--c-accent);}
          Master thesis: "Delay-tolerant packet routing in P2P networks."
 
         <p><strong>Invest/Contribute with Bitcoin: </strong> <a class="btn2 btn-primary mt-3" href="bitcoin:bc1qekvmkczge3hxrvwdf2lj3yyvgjnparn3fdf9lg" onclick="navigator.clipboard.writeText('bc1qekvmkczge3hxrvwdf2lj3yyvgjnparn3fdf9lg'); alert('bc1qekvmkczge3hxrvwdf2lj3yyvgjnparn3fdf9lg\n\n🧷  Clipboard copy complete! \n Proceed to your preferred Bitcoin wallet\n 🙏 🙏 🙏\n\n (📈Explorer Network revenue rewards will be routed to your address proportionally to contribution📈)')"><code>bc1qekvmkc...f9lg</code></a> <a id="bc1qekvmkczge3hxrvwdf2lj3yyvgjnparn3fdf9lg" href="#bc1qekvmkczge3hxrvwdf2lj3yyvgjnparn3fdf9lg" onclick="navigator.clipboard.writeText('bc1qekvmkczge3hxrvwdf2lj3yyvgjnparn3fdf9lg'); document.getElementById('bc1qekvmkczge3hxrvwdf2lj3yyvgjnparn3fdf9lg').innerText='🙏 🙏 🙏'"><strong>|copy|</strong></a></div></p>
-        <p><a href="https://www.paypal.com/ncp/payment/BJYMUTH3YXUV6">Donate for Universal Doomsday R & D: digidoom.org</a></p>
+        <p><a href="https://www.paypal.com/ncp/payment/BJYMUTH3YXUV6">Donate for Universal Doomsday R & D: digidoom.org  💳 </a></p>
          <p><strong>Mailing address:</strong> 30 Oorgat, Edam, 1135CR, Netherlands</div></p>
        <p>
 
