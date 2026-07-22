@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-22T00:50:51.011084*
+*Generated: 2026-07-22T00:51:55.622919*
 ---
 
 ## CRYPTO
@@ -1923,7 +1923,7 @@ Old-school WU-MTCN (pure) R & D donations can be sent to Canada, France and Chil
 
 🐕 Doge donate: DL6HGZH6xza35Tts2guxezo2RDghTEbj8s ("Fun & Profit R & D")
 
-Paypal Donate ("Univesal entropy R & D"): https://www.paypal.com/ncp/payment/BJYMUTH3YXUV6
+Paypal Donate ("Universal entropy R & D"): https://www.paypal.com/ncp/payment/BJYMUTH3YXUV6
 
 
 
