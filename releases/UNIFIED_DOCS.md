@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-21T04:51:14.998646*
+*Generated: 2026-07-22T00:39:15.781574*
 ---
 
 ## CRYPTO
@@ -1918,6 +1918,8 @@ QR-code with BTC-address of the fund:
 >> Profit share participation option: *Significant ZEN / SEPA donations (more than 1% of fund at the time of donation), can be converted to profit share manually (minus ZEN transaction / currency fee), **if** [contacted](mailto:sepa@doomsdayexplorer.online) with verifyable receipt, amount and btc reward address. Participating amounts must contain random numbers. First email with right amount specified takes priority, for security ("hto pershiy - toy i bat'ko"). Amounts (participating in profit-share) and reward addresses (together with funding tx created on your behalf, linking to re-direct address) will be publicly reported in `sepa.md`(the rest is your anonymity preference).*
 
 >> *Bud'mo!*
+
+Old-school WU-MTCN (pure) donations can be sent to Canada, France, Chile and Peru in "Dmytro Kondratiuk"'s name, notify MTCN at wu@doomsdayexplorer.online.
 
 -----
 **Addendum A. Extra stats and simulations.**
