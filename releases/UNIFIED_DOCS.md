@@ -1,5 +1,5 @@
 # Doomsday Unified Documentation
-*Generated: 2026-07-22T00:39:15.781574*
+*Generated: 2026-07-22T00:41:24.098648*
 ---
 
 ## CRYPTO
@@ -1920,6 +1920,10 @@ QR-code with BTC-address of the fund:
 >> *Bud'mo!*
 
 Old-school WU-MTCN (pure) donations can be sent to Canada, France, Chile and Peru in "Dmytro Kondratiuk"'s name, notify MTCN at wu@doomsdayexplorer.online.
+
+🐕 Doge donate: DL6HGZH6xza35Tts2guxezo2RDghTEbj8s
+
+
 
 -----
 **Addendum A. Extra stats and simulations.**
